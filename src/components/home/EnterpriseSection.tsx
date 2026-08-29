@@ -1,5 +1,6 @@
 import React from 'react';
 import { Cpu, Server, Lock, Zap, Gauge, GitMerge } from 'lucide-react';
+import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import Link from 'next/link';
 
 const enterprisePillars = [
@@ -35,26 +36,28 @@ export function EnterpriseSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Column: Heading & Copy */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="inline-block text-xs uppercase tracking-widest text-teal-400 font-mono font-bold bg-teal-950/60 border border-teal-500/30 px-3 py-1 rounded-md">
-              Enterprise Grade
-            </div>
+            <ScrollReveal direction="left">
+              <div className="inline-block text-xs uppercase tracking-widest text-teal-400 font-mono font-bold bg-teal-950/60 border border-teal-500/30 px-3 py-1 rounded-md">
+                Enterprise Grade
+              </div>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-[1.15]">
-              Built for Scale, Resilience & Mission-Critical Operations
-            </h2>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-[1.15] mt-3 mb-4">
+                Built for Scale, Resilience & Mission-Critical Operations
+              </h2>
 
-            <p className="text-gray-300 text-base leading-relaxed">
-              We eliminate technical debt by establishing solid software engineering foundations. Our architectural playbooks protect your systems against downtime, scale effortlessly, and integrate into existing legacy stacks.
-            </p>
+              <p className="text-gray-300 text-base leading-relaxed mb-6">
+                We eliminate technical debt by establishing solid software engineering foundations. Our architectural playbooks protect your systems against downtime, scale effortlessly, and integrate into existing legacy stacks.
+              </p>
 
-            <div className="pt-2">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-teal-500 hover:bg-teal-400 text-black font-bold text-sm transition-colors shadow-lg shadow-teal-500/20"
-              >
-                Schedule Architecture Review
-              </Link>
-            </div>
+              <div>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-teal-500 hover:bg-teal-400 text-black font-bold text-sm transition-colors shadow-lg shadow-teal-500/20"
+                >
+                  Schedule Architecture Review
+                </Link>
+              </div>
+            </ScrollReveal>
           </div>
 
           {/* Right Column: 4 Pillar Grid */}
@@ -62,20 +65,19 @@ export function EnterpriseSection() {
             {enterprisePillars.map((pillar, i) => {
               const Icon = pillar.icon;
               return (
-                <div
-                  key={i}
-                  className="bg-[#0e1628]/90 border border-gray-800 hover:border-cyan-500/50 p-6 rounded-2xl transition-all duration-300 hover:bg-[#131d33]"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400 mb-4">
-                    <Icon className="w-6 h-6" />
+                <ScrollReveal key={i} direction="up" delay={i * 0.1}>
+                  <div className="bg-[#0e1628]/90 border border-gray-800 hover:border-cyan-500/50 p-6 rounded-2xl transition-all duration-300 hover:bg-[#131d33] h-full">
+                    <div className="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400 mb-4">
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-2">
+                      {pillar.title}
+                    </h3>
+                    <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                      {pillar.desc}
+                    </p>
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-2">
-                    {pillar.title}
-                  </h3>
-                  <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
-                    {pillar.desc}
-                  </p>
-                </div>
+                </ScrollReveal>
               );
             })}
           </div>

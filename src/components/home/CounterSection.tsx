@@ -1,5 +1,6 @@
 import React from 'react';
 import { Award, Users, Rocket, CheckSquare } from 'lucide-react';
+import { ScrollReveal } from '@/components/ui/ScrollReveal';
 
 const stats = [
   {
@@ -36,23 +37,22 @@ export function CounterSection() {
           {stats.map((stat, i) => {
             const Icon = stat.icon;
             return (
-              <div
-                key={i}
-                className="flex flex-col items-center text-center p-6 rounded-2xl bg-[#0e1628]/60 border border-gray-800/60 hover:border-cyan-500/30 transition-all group"
-              >
-                <div className="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400 mb-4 group-hover:scale-110 transition-transform">
-                  <Icon className="w-6 h-6" />
+              <ScrollReveal key={i} direction="up" delay={i * 0.1}>
+                <div className="flex flex-col items-center text-center p-6 rounded-2xl bg-[#0e1628]/60 border border-gray-800/60 hover:border-cyan-500/30 transition-all group">
+                  <div className="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400 mb-4 group-hover:scale-110 transition-transform">
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <div className="text-3xl md:text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-teal-200 font-mono tracking-tight mb-1">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm md:text-base font-bold text-gray-200 mb-1">
+                    {stat.label}
+                  </div>
+                  <div className="text-xs text-gray-400 hidden sm:block">
+                    {stat.desc}
+                  </div>
                 </div>
-                <div className="text-3xl md:text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-teal-200 font-mono tracking-tight mb-1">
-                  {stat.value}
-                </div>
-                <div className="text-sm md:text-base font-bold text-gray-200 mb-1">
-                  {stat.label}
-                </div>
-                <div className="text-xs text-gray-400 hidden sm:block">
-                  {stat.desc}
-                </div>
-              </div>
+              </ScrollReveal>
             );
           })}
         </div>
