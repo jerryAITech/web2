@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import { Menu, X, ChevronDown, Sparkles, Terminal } from 'lucide-react';
+import { ScrollProgressBar } from '@/components/ui/ScrollProgressBar';
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -217,6 +218,9 @@ export function Navbar() {
           </div>
         </div>
       )}
+
+      {/* Real-time Scroll Progress Bar directly under the Header */}
+      <ScrollProgressBar />
     </header>
   );
 }

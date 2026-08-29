@@ -7,8 +7,10 @@ import { usePathname } from 'next/navigation';
 export function ScrollProgressBar() {
   const pathname = usePathname();
   const { scrollYProgress } = useScroll();
+  
+  // Smooth spring physics for fluid progress feedback
   const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
+    stiffness: 120,
     damping: 30,
     restDelta: 0.001,
   });
@@ -18,9 +20,11 @@ export function ScrollProgressBar() {
   }
 
   return (
-    <motion.div
-      style={{ scaleX }}
-      className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-500 origin-left z-[100] shadow-[0_0_12px_rgba(6,182,212,0.8)]"
-    />
+    <div className="absolute bottom-0 left-0 right-0 w-full h-[3px] overflow-hidden pointer-events-none">
+      <motion.div
+        style={{ scaleX }}
+        className="w-full h-full bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-500 origin-left shadow-[0_0_15px_rgba(45,212,191,0.9)]"
+      />
+    </div>
   );
 }

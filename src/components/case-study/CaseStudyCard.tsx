@@ -1,8 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowUpRight, TrendingUp, Cpu } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { CaseStudy } from '@/types';
+import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
 
 export function CaseStudyCard({ study }: { study: CaseStudy }) {
   return (
@@ -39,17 +40,17 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
             {study.overview}
           </p>
 
-          {/* Metrics Highlight */}
+          {/* Metrics Highlight with Animated Rolling Numbers */}
           <div className="grid grid-cols-2 gap-3 mb-6">
             {study.metrics.slice(0, 2).map((m, i) => (
               <div
                 key={i}
-                className="bg-[#0b1120]/80 p-3 rounded-xl border border-gray-800/80 group-hover:border-cyan-500/30 transition-colors"
+                className="bg-[#0b1120]/80 p-3.5 rounded-xl border border-gray-800/80 group-hover:border-cyan-500/40 transition-colors"
               >
                 <div className="text-xl md:text-2xl font-extrabold text-teal-400 font-mono">
-                  {m.value}
+                  <AnimatedCounter value={m.value} duration={2} />
                 </div>
-                <div className="text-xs text-gray-400 font-medium truncate">{m.label}</div>
+                <div className="text-xs text-gray-400 font-medium truncate mt-0.5">{m.label}</div>
               </div>
             ))}
           </div>
@@ -59,27 +60,21 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
             {study.techStack.slice(0, 4).map((tech, i) => (
               <span
                 key={i}
-                className="text-[11px] font-mono text-gray-300 bg-gray-900/90 px-2.5 py-1 rounded-md border border-gray-800"
+                className="text-xs bg-gray-900/90 text-gray-300 px-3 py-1 rounded-md border border-gray-800 font-mono"
               >
                 {tech}
               </span>
             ))}
-            {study.techStack.length > 4 && (
-              <span className="text-[11px] font-mono text-teal-400 bg-teal-950/40 px-2 py-1 rounded-md">
-                +{study.techStack.length - 4} more
-              </span>
-            )}
           </div>
         </div>
 
-        {/* Read full case study link */}
-        <div className="pt-4 border-t border-gray-800 flex items-center justify-between">
-          <span className="text-xs text-gray-400">Full Architecture Breakdown</span>
+        <div className="pt-4 border-t border-gray-800/80">
           <Link
             href={`/case-study/${study.slug}`}
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-teal-400 hover:text-white transition-colors group-hover:translate-x-1"
+            className="inline-flex items-center gap-2 text-sm font-bold text-teal-400 group-hover:text-white transition-colors"
           >
-            Explore Case Study <ArrowUpRight className="w-4 h-4" />
+            <span>Read Full Case Study</span>
+            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform" />
           </Link>
         </div>
       </div>

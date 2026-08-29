@@ -4,7 +4,6 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Analytics } from '@/components/analytics/Analytics';
 import { AppLoader } from '@/components/ui/AppLoader';
-import { ScrollProgressBar } from '@/components/ui/ScrollProgressBar';
 import { WhatsAppButton } from '@/components/ui/WhatsAppButton';
 import { AiChatBot } from '@/components/ui/AiChatBot';
 import { getSiteSettings } from '@/sanity/client';
@@ -44,9 +43,6 @@ export default async function RootLayout({
       <body className="bg-[#070b16] text-gray-100 font-sans antialiased selection:bg-teal-500 selection:text-black">
         {/* App Loading Animation */}
         <AppLoader />
-
-        {/* Top Scroll Reading Progress Bar */}
-        <ScrollProgressBar />
 
         {/* Tracking Scripts */}
         <Analytics
