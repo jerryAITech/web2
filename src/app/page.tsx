@@ -6,6 +6,7 @@ import { IndustriesSection } from '@/components/home/IndustriesSection';
 import { ServicesSection } from '@/components/home/ServicesSection';
 import { EnterpriseSection } from '@/components/home/EnterpriseSection';
 import { FeaturedCaseStudies } from '@/components/home/FeaturedCaseStudies';
+import { FaqSection } from '@/components/home/FaqSection';
 import { CtaBanner } from '@/components/home/CtaBanner';
 import { OrganizationSchema, WebSiteSchema } from '@/components/seo/SchemaMarkup';
 import { getAllCaseStudies, getSiteSettings } from '@/sanity/client';
@@ -36,6 +37,7 @@ export default async function HomePage() {
         <ServicesSection />
         <EnterpriseSection />
         <FeaturedCaseStudies studies={caseStudies} />
+        <FaqSection />
         <CtaBanner />
       </main>
     </>
