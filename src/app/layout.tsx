@@ -6,6 +6,7 @@ import { Analytics } from '@/components/analytics/Analytics';
 import { AppLoader } from '@/components/ui/AppLoader';
 import { WhatsAppButton } from '@/components/ui/WhatsAppButton';
 import { AiChatBot } from '@/components/ui/AiChatBot';
+import { ScrollToTop } from '@/components/ui/ScrollToTop';
 import { getSiteSettings } from '@/sanity/client';
 import { constructMetadata } from '@/lib/seo';
 
@@ -57,10 +58,13 @@ export default async function RootLayout({
           <Footer />
         </div>
 
-        {/* Floating WhatsApp Support Button */}
+        {/* Floating WhatsApp Support Button (Bottom-Left) */}
         <WhatsAppButton />
 
-        {/* Floating AI Assistant Chatbot */}
+        {/* Floating Scroll-To-Top Progress Pill (Bottom-Center) */}
+        <ScrollToTop />
+
+        {/* Floating AI Assistant Chatbot (Bottom-Right) */}
         <AiChatBot />
       </body>
     </html>
