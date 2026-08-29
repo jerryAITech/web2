@@ -23,7 +23,7 @@ export function WhatsAppButton({
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
   return (
-    <div className="fixed bottom-6 left-6 z-40 flex flex-col items-start font-sans select-none">
+    <div className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-40 flex flex-col items-start font-sans select-none">
       {/* Quick Chat Popup Card */}
       <AnimatePresence>
         {isOpen && (
@@ -32,7 +32,7 @@ export function WhatsAppButton({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 15, scale: 0.95 }}
             transition={{ duration: 0.25 }}
-            className="mb-3 w-72 sm:w-80 bg-[#0c1424] border border-emerald-500/30 rounded-3xl p-5 shadow-2xl backdrop-blur-xl"
+            className="mb-3 w-[calc(100vw-32px)] sm:w-80 max-w-sm bg-[#0c1424] border border-emerald-500/30 rounded-3xl p-5 shadow-2xl backdrop-blur-xl"
           >
             {/* Header */}
             <div className="flex items-center justify-between pb-3 border-b border-gray-800">
@@ -79,7 +79,7 @@ export function WhatsAppButton({
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="relative flex items-center gap-2.5 px-4 py-3 rounded-full bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-xs shadow-xl shadow-emerald-500/30 transition-colors group"
+        className="relative flex items-center gap-2 p-3 sm:px-4 sm:py-3 rounded-full bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-xs shadow-xl shadow-emerald-500/30 transition-colors group"
         aria-label="Toggle WhatsApp Support"
       >
         {/* Pulse beacon */}
@@ -88,11 +88,11 @@ export function WhatsAppButton({
           <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-300" />
         </span>
 
-        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+        <svg className="w-5 h-5 fill-current flex-shrink-0" viewBox="0 0 24 24">
           <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.584 1.89.897 2.796.897 3.181 0 5.767-2.586 5.768-5.766.001-3.18-2.585-5.784-5.768-5.784zm9.969 5.766c0 5.514-4.486 10-10 10-1.808 0-3.504-.482-4.966-1.325l-7.034 1.842 1.879-6.862c-.931-1.517-1.479-3.308-1.479-5.221 0-5.514 4.486-10 10-10s10 4.486 10 10z"/>
         </svg>
 
-        <span className="hidden sm:inline-block font-extrabold text-[11px]">WhatsApp Support</span>
+        <span className="hidden sm:inline-block font-extrabold text-[11px]">WhatsApp</span>
       </motion.button>
     </div>
   );
