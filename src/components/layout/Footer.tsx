@@ -307,9 +307,6 @@ export function Footer() {
             <Link href="/robots.txt" className="hover:text-gray-400 transition-colors">
               Robots.txt
             </Link>
-            <Link href="/studio" className="text-teal-400 hover:underline">
-              CMS Admin Studio
-            </Link>
           </div>
         </div>
       </div>

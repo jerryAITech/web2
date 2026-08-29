@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
-import { Menu, X, ChevronDown, Sparkles, Terminal } from 'lucide-react';
+import { Menu, X, ChevronDown, Sparkles, LayoutDashboard } from 'lucide-react';
 import { ScrollProgressBar } from '@/components/ui/ScrollProgressBar';
 
 export function Navbar() {
@@ -41,7 +41,7 @@ export function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#080d1a]/90 backdrop-blur-md border-b border-cyan-500/20 py-3 shadow-lg shadow-black/40'
+          ? 'bg-[#080d1a]/95 backdrop-blur-md border-b border-cyan-500/20 py-3 shadow-lg shadow-black/50'
           : 'bg-transparent py-5'
       }`}
     >
@@ -126,18 +126,21 @@ export function Navbar() {
             >
               Blog
             </Link>
-
-            <Link
-              href="/studio"
-              className="flex items-center gap-1.5 text-xs text-cyan-300/80 bg-cyan-950/40 hover:bg-cyan-900/60 border border-cyan-500/30 px-2.5 py-1 rounded-full transition-colors"
-              title="Open Sanity CMS Admin Studio"
-            >
-              <Terminal className="w-3 h-3" /> CMS Studio
-            </Link>
           </nav>
 
-          {/* Desktop Right CTA */}
-          <div className="hidden lg:flex items-center gap-4">
+          {/* Desktop Right CTA Area: CMS Studio Button + Discovery Call */}
+          <div className="hidden lg:flex items-center gap-3.5">
+            {/* Header CMS Studio Button */}
+            <Link
+              href="/studio"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0c1424] hover:bg-[#131f38] border border-cyan-500/40 hover:border-cyan-400 text-cyan-300 hover:text-white text-xs font-bold transition-all shadow-md group"
+              title="Open Sanity CMS Admin Studio"
+            >
+              <LayoutDashboard className="w-3.5 h-3.5 text-teal-400 group-hover:rotate-12 transition-transform" />
+              <span>CMS Studio</span>
+            </Link>
+
+            {/* Book Discovery Call */}
             <Link
               href="/contact"
               className="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-semibold rounded-full group bg-gradient-to-br from-teal-400 to-cyan-500 group-hover:from-teal-400 group-hover:to-cyan-500 hover:text-white text-white shadow-lg shadow-teal-500/25 hover:shadow-teal-500/40 transition-all duration-300"
@@ -149,8 +152,14 @@ export function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile Hamburger Toggle */}
+          {/* Mobile Right Quick Buttons */}
           <div className="flex lg:hidden items-center gap-2">
+            <Link
+              href="/studio"
+              className="text-xs bg-cyan-950 border border-cyan-500/40 text-cyan-300 font-bold px-3 py-1.5 rounded-full"
+            >
+              CMS
+            </Link>
             <Link
               href="/contact"
               className="text-xs bg-teal-500 text-black font-bold px-3 py-1.5 rounded-full"
@@ -169,9 +178,9 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Dropdown Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#0a0f1d] border-b border-gray-800 px-4 pt-4 pb-6 space-y-3 animate-fade-in shadow-2xl">
+        <div className="lg:hidden bg-[#070b16]/98 border-b border-gray-800 px-4 pt-3 pb-6 space-y-3 backdrop-blur-xl animate-fade-in">
           <Link
             href="/#industries"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-teal-400 hover:bg-gray-800/60"
@@ -188,13 +197,13 @@ export function Navbar() {
             href="/#enterprise"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-teal-400 hover:bg-gray-800/60"
           >
-            Enterprise Solutions
+            Enterprise Architecture
           </Link>
           <Link
             href="/case-studies"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-teal-400 hover:bg-gray-800/60"
           >
-            Portfolio / Case Studies
+            Case Studies
           </Link>
           <Link
             href="/blog"
@@ -204,9 +213,9 @@ export function Navbar() {
           </Link>
           <Link
             href="/studio"
-            className="block px-3 py-2 rounded-md text-base font-medium text-cyan-300 bg-cyan-950/30 border border-cyan-500/20"
+            className="block px-3 py-2.5 rounded-xl text-base font-bold text-cyan-300 bg-cyan-950/50 border border-cyan-500/40 text-center"
           >
-            Sanity CMS Studio
+            ⚡ Open Sanity CMS Studio
           </Link>
           <div className="pt-2">
             <Link
