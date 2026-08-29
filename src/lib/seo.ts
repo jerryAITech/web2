@@ -51,6 +51,7 @@ export function constructMetadata({
   const noFollow = seo?.noFollow || false;
 
   return {
+    metadataBase: new URL(settings.siteUrl || 'https://zyntechlabs.io'),
     title: metaTitle,
     description: metaDescription,
     alternates: {

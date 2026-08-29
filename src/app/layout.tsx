@@ -38,6 +38,8 @@ export default async function RootLayout({
       <head>
         <link rel="icon" type="image/svg+xml" href="/zyntech_logo.svg" />
         <link rel="apple-touch-icon" href="/zyntech_logo.svg" />
+        <link rel="manifest" href="/manifest.webmanifest" />
+        <link rel="alternate" type="application/rss+xml" title="ZynTech Labs RSS Feed" href="/feed.xml" />
       </head>
       <body className="bg-[#070b16] text-gray-100 font-sans antialiased selection:bg-teal-500 selection:text-black">
         {/* App Loading Animation */}
