@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { Resend } from 'resend';
 
 // ─── HTML Email Template (Team notification) ───────────────────────────────────
 function buildEmailHTML(data: {
@@ -156,48 +157,26 @@ export async function POST(request: Request) {
       timeStyle: 'short',
     });
 
-    const resendKey = process.env.RESEND_API_KEY;
-
-    if (!resendKey || resendKey === 'your_resend_api_key_here') {
-      // Log and return success even without email (dev mode)
-      console.log('📬 Contact Form Submission (no email configured):', { name, email, company, industry, budget, message });
-      return NextResponse.json({
-        success: true,
-        message: 'Inquiry received! (Email sending not configured yet — add RESEND_API_KEY to .env.local)',
-      });
-    }
-
     const toEmail = process.env.CONTACT_TO_EMAIL || 'jerryaitech17@gmail.com';
 
-    // ── Send notification email to ZynTech team ────────────────────────────
-    await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${resendKey}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        from: 'ZynTech Labs <onboarding@resend.dev>',
-        to: [toEmail],
-        reply_to: email,
-        subject: `🚀 New Discovery Request from ${name} (${company || 'Individual'})`,
-        html: buildEmailHTML({ name, email, company, industry, budget, message, submittedAt }),
-      }),
+    // ── Initialise Resend SDK from environment variable ────────────────────
+    const resend = new Resend(process.env.RESEND_API_KEY);
+
+    // ── Send notification to ZynTech team ─────────────────────────────────
+    await resend.emails.send({
+      from: 'ZynTech Labs <onboarding@resend.dev>',
+      to: [toEmail],
+      reply_to: email,
+      subject: `🚀 New Discovery Request from ${name} (${company || 'Individual'})`,
+      html: buildEmailHTML({ name, email, company, industry, budget, message, submittedAt }),
     });
 
     // ── Send auto-reply confirmation to the client ─────────────────────────
-    await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${resendKey}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        from: 'ZynTech Labs <onboarding@resend.dev>',
-        to: [email],
-        subject: `We received your request, ${name}! – ZynTech Labs`,
-        html: buildAutoReplyHTML(name),
-      }),
+    await resend.emails.send({
+      from: 'ZynTech Labs <onboarding@resend.dev>',
+      to: [email],
+      subject: `We received your request, ${name}! – ZynTech Labs`,
+      html: buildAutoReplyHTML(name),
     });
 
     return NextResponse.json({
