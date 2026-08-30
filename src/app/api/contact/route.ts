@@ -166,7 +166,7 @@ export async function POST(request: Request) {
     await resend.emails.send({
       from: 'ZynTech Labs <onboarding@resend.dev>',
       to: [toEmail],
-      reply_to: email,
+      replyTo: email,
       subject: `🚀 New Discovery Request from ${name} (${company || 'Individual'})`,
       html: buildEmailHTML({ name, email, company, industry, budget, message, submittedAt }),
     });
