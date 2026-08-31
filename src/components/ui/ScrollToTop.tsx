@@ -59,7 +59,7 @@ export function ScrollToTop() {
             onClick={scrollToTop}
             whileHover={{ scale: 1.08, y: -2 }}
             whileTap={{ scale: 0.92 }}
-            className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-[#0c1424]/90 hover:bg-[#121e38] text-white border border-cyan-500/40 shadow-2xl backdrop-blur-xl group cursor-pointer"
+            className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-[#0c1424]/90 hover:bg-[#121e38] text-white border border-cyan-500/40 shadow-2xl backdrop-blur-xl group cursor-pointer"
             title="Scroll back to top"
             aria-label="Scroll to top"
           >

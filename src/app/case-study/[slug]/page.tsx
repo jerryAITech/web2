@@ -213,7 +213,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-teal-400 to-cyan-500 text-black font-extrabold text-sm hover:from-teal-300 hover:to-cyan-400 transition-all shadow-lg shadow-teal-500/20"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-gradient-to-r from-teal-400 to-cyan-500 text-black font-extrabold text-sm hover:from-teal-300 hover:to-cyan-400 transition-all shadow-lg shadow-teal-500/20"
             >
               <span>Book A Discovery Call</span>
               <ArrowRight className="w-4 h-4" />

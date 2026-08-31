@@ -27,6 +27,7 @@ export default defineConfig({
             S.divider(),
             S.documentTypeListItem('post').title('Blog Posts (Articles)'),
             S.documentTypeListItem('caseStudy').title('Case Studies (Portfolio)'),
+            S.documentTypeListItem('page').title('Standalone Pages (not in navbar)'),
             S.divider(),
             S.documentTypeListItem('category').title('Categories'),
             S.documentTypeListItem('author').title('Authors'),

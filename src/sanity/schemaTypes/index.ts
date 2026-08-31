@@ -4,6 +4,7 @@ import { authorType } from './authorType';
 import { categoryType } from './categoryType';
 import { postType } from './postType';
 import { caseStudyType } from './caseStudyType';
+import { pageType } from './pageType';
 import { siteSettingsType } from './siteSettingsType';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
@@ -13,6 +14,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     categoryType,
     postType,
     caseStudyType,
+    pageType,
     siteSettingsType,
   ],
 };

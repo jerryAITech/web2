@@ -15,7 +15,6 @@ import { constructMetadata } from '@/lib/seo';
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSiteSettings();
   return constructMetadata({
-    title: settings.defaultTitle,
     description: settings.defaultDescription,
     settings,
   });

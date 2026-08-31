@@ -30,7 +30,7 @@ export function CtaBanner() {
               <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
                   href="/contact"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-teal-400 to-cyan-500 text-black font-extrabold text-base hover:from-teal-300 hover:to-cyan-400 transition-all shadow-xl shadow-teal-500/25 group"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-teal-400 to-cyan-500 text-black font-extrabold text-base hover:from-teal-300 hover:to-cyan-400 transition-all shadow-xl shadow-teal-500/25 group"
                 >
                   <PhoneCall className="w-4 h-4" />
                   <span>Book A Discovery Call</span>

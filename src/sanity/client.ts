@@ -1,7 +1,7 @@
 import { createClient, type QueryParams } from 'next-sanity';
 import { apiVersion, dataset, projectId, useCdn, isSanityProjectConfigured } from './env';
 import { blogPostsData, caseStudiesData, siteSettings as defaultSiteSettings } from '@/lib/fallbackData';
-import { BlogPost, CaseStudy, SiteSettings } from '@/types';
+import { BlogPost, CaseStudy, Page, SiteSettings } from '@/types';
 
 export const isSanityConfigured = isSanityProjectConfigured;
 
@@ -176,4 +176,40 @@ export async function getCaseStudyBySlug(slug: string): Promise<CaseStudy | null
   });
 
   return study || caseStudiesData.find((c) => c.slug === slug) || null;
+}
+
+export async function getAllPages(): Promise<Page[]> {
+  const result = await sanityFetch<Page[]>({
+    query: `*[_type == "page"]{
+      _id,
+      title,
+      "slug": slug.current,
+      tagline,
+      "heroImage": heroImage.asset->url,
+      seo
+    }`,
+    fallback: [],
+    tags: ['page'],
+  });
+
+  return Array.isArray(result) ? result : [];
+}
+
+export async function getPageBySlug(slug: string): Promise<Page | null> {
+  const page = await sanityFetch<Page | null>({
+    query: `*[_type == "page" && slug.current == $slug][0]{
+      _id,
+      title,
+      "slug": slug.current,
+      tagline,
+      "heroImage": heroImage.asset->url,
+      body,
+      seo
+    }`,
+    params: { slug },
+    fallback: null,
+    tags: [`page:${slug}`],
+  });
+
+  return page || null;
 }

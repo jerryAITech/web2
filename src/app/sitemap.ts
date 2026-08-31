@@ -1,13 +1,14 @@
 import { MetadataRoute } from 'next';
-import { getAllBlogPosts, getAllCaseStudies, getSiteSettings } from '@/sanity/client';
+import { getAllBlogPosts, getAllCaseStudies, getAllPages, getSiteSettings } from '@/sanity/client';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const settings = await getSiteSettings();
   const baseUrl = settings.siteUrl || 'https://zyntechlabs.io';
 
-  const [posts, caseStudies] = await Promise.all([
+  const [posts, caseStudies, pages] = await Promise.all([
     getAllBlogPosts(),
     getAllCaseStudies(),
+    getAllPages(),
   ]);
 
   // Static routes
@@ -82,5 +83,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     }));
 
-  return [...staticRoutes, ...caseStudyRoutes, ...blogRoutes];
+  // Dynamic Standalone Page routes (not linked from the header)
+  const pageRoutes: MetadataRoute.Sitemap = pages
+    .filter((page) => !page.seo?.noIndex)
+    .map((page) => ({
+      url: `${baseUrl}/${page.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    }));
+
+  return [...staticRoutes, ...caseStudyRoutes, ...blogRoutes, ...pageRoutes];
 }

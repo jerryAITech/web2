@@ -44,7 +44,7 @@ export default async function BlogPage() {
         <div className="flex flex-wrap items-center gap-2.5 pb-10 border-b border-gray-800/80 mb-12">
           <button
             type="button"
-            className="px-4 py-2 rounded-full bg-teal-500 text-black text-xs font-extrabold shadow-md shadow-teal-500/20"
+            className="px-4 py-2 rounded-xl bg-teal-500 text-black text-xs font-extrabold shadow-md shadow-teal-500/20"
           >
             All Articles ({posts.length})
           </button>
@@ -52,7 +52,7 @@ export default async function BlogPage() {
             <button
               key={i}
               type="button"
-              className="px-4 py-2 rounded-full bg-gray-900/80 hover:bg-gray-800 text-gray-300 hover:text-white text-xs font-semibold border border-gray-800 transition-colors"
+              className="px-4 py-2 rounded-xl bg-gray-900/80 hover:bg-gray-800 text-gray-300 hover:text-white text-xs font-semibold border border-gray-800 transition-colors"
             >
               {cat}
             </button>

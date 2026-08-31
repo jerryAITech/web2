@@ -17,6 +17,10 @@ export async function POST(req: NextRequest) {
       revalidateTag('caseStudy', 'default');
       revalidatePath('/case-studies');
       if (slug) revalidatePath(`/case-study/${slug}`);
+    } else if (docType === 'page') {
+      revalidateTag('page', 'default');
+      revalidatePath('/sitemap.xml');
+      if (slug) revalidatePath(`/${slug}`);
     } else if (docType === 'siteSettings') {
       revalidateTag('siteSettings', 'default');
       revalidatePath('/', 'layout');

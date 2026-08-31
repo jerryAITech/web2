@@ -70,6 +70,16 @@ export interface CaseStudy {
   seo?: SeoMetadata;
 }
 
+export interface Page {
+  _id?: string;
+  title: string;
+  slug: string;
+  tagline?: string;
+  heroImage?: string;
+  body?: any; // PortableText content
+  seo?: SeoMetadata;
+}
+
 export interface SiteSettings {
   siteName: string;
   siteUrl: string;

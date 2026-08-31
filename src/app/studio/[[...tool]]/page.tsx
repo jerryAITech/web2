@@ -63,7 +63,7 @@ export default function StudioPage() {
 
             <button
               onClick={() => window.location.reload()}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-teal-500 hover:bg-teal-400 text-black font-extrabold text-xs transition-colors shadow-lg shadow-teal-500/20"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-teal-500 hover:bg-teal-400 text-black font-extrabold text-xs transition-colors shadow-lg shadow-teal-500/20"
             >
               <RefreshCw className="w-3.5 h-3.5" />
               <span>Reload Studio</span>

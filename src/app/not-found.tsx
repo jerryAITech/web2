@@ -26,19 +26,19 @@ export default function NotFound() {
         <div className="pt-4 flex flex-wrap items-center justify-center gap-3">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-teal-400 to-cyan-500 text-black font-extrabold text-sm hover:from-teal-300 hover:to-cyan-400 transition-all shadow-lg shadow-teal-500/20"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-teal-400 to-cyan-500 text-black font-extrabold text-sm hover:from-teal-300 hover:to-cyan-400 transition-all shadow-lg shadow-teal-500/20"
           >
             <Home className="w-4 h-4" /> Return to Homepage
           </Link>
           <Link
             href="/case-studies"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gray-900 hover:bg-gray-800 text-white font-semibold text-sm border border-gray-700 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gray-900 hover:bg-gray-800 text-white font-semibold text-sm border border-gray-700 transition-colors"
           >
             Explore Case Studies
           </Link>
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gray-900 hover:bg-gray-800 text-white font-semibold text-sm border border-gray-700 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gray-900 hover:bg-gray-800 text-white font-semibold text-sm border border-gray-700 transition-colors"
           >
             Read Blog
           </Link>

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
-import { Menu, X, ChevronDown, Sparkles, LayoutDashboard } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { ScrollProgressBar } from '@/components/ui/ScrollProgressBar';
 
 export function Navbar() {
@@ -128,41 +128,21 @@ export function Navbar() {
             </Link>
           </nav>
 
-          {/* Desktop Right CTA Area: CMS Studio Button + Discovery Call */}
+          {/* Desktop Right CTA */}
           <div className="hidden lg:flex items-center gap-3.5">
-            {/* Header CMS Studio Button */}
-            <Link
-              href="/studio"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0c1424] hover:bg-[#131f38] border border-cyan-500/40 hover:border-cyan-400 text-cyan-300 hover:text-white text-xs font-bold transition-all shadow-md group"
-              title="Open Sanity CMS Admin Studio"
-            >
-              <LayoutDashboard className="w-3.5 h-3.5 text-teal-400 group-hover:rotate-12 transition-transform" />
-              <span>CMS Studio</span>
-            </Link>
-
-            {/* Book Discovery Call */}
             <Link
               href="/contact"
-              className="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-semibold rounded-full group bg-gradient-to-br from-teal-400 to-cyan-500 group-hover:from-teal-400 group-hover:to-cyan-500 hover:text-white text-white shadow-lg shadow-teal-500/25 hover:shadow-teal-500/40 transition-all duration-300"
+              className="inline-flex items-center justify-center px-5 py-2 rounded-xl bg-teal-500 hover:bg-teal-400 text-black font-semibold text-sm transition-colors"
             >
-              <span className="relative px-5 py-2 transition-all ease-in duration-200 bg-[#0b1120] rounded-full group-hover:bg-opacity-0 font-medium flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-teal-400 group-hover:text-white" />
-                Book Discovery Call
-              </span>
+              Contact us
             </Link>
           </div>
 
           {/* Mobile Right Quick Buttons */}
           <div className="flex lg:hidden items-center gap-2">
             <Link
-              href="/studio"
-              className="text-xs bg-cyan-950 border border-cyan-500/40 text-cyan-300 font-bold px-3 py-1.5 rounded-full"
-            >
-              CMS
-            </Link>
-            <Link
               href="/contact"
-              className="text-xs bg-teal-500 text-black font-bold px-3 py-1.5 rounded-full"
+              className="text-xs bg-teal-500 text-black font-bold px-3 py-1.5 rounded-xl"
             >
               Contact
             </Link>
@@ -209,20 +189,14 @@ export function Navbar() {
             href="/blog"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-teal-400 hover:bg-gray-800/60"
           >
-            Blog & Insights
-          </Link>
-          <Link
-            href="/studio"
-            className="block px-3 py-2.5 rounded-xl text-base font-bold text-cyan-300 bg-cyan-950/50 border border-cyan-500/40 text-center"
-          >
-            ⚡ Open Sanity CMS Studio
+            Blog
           </Link>
           <div className="pt-2">
             <Link
               href="/contact"
-              className="w-full block text-center bg-gradient-to-r from-teal-400 to-cyan-500 text-black font-bold py-3 rounded-xl shadow-lg shadow-teal-500/20"
+              className="w-full block text-center bg-teal-500 text-black font-bold py-3 rounded-xl"
             >
-              Book A Discovery Call
+              Contact us
             </Link>
           </div>
         </div>
