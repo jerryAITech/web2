@@ -49,10 +49,12 @@ export const postType = defineType({
       ],
     }),
     defineField({
-      name: 'category',
-      title: 'Category',
-      type: 'reference',
-      to: { type: 'category' },
+      name: 'categories',
+      title: 'Categories',
+      description: 'Add one or more categories for this post.',
+      type: 'array',
+      of: [{ type: 'reference', to: { type: 'category' } }],
+      validation: (Rule) => Rule.min(1).warning('Add at least one category so this post can be filtered on the blog page.'),
     }),
     defineField({
       name: 'publishedAt',
@@ -68,10 +70,13 @@ export const postType = defineType({
       description: 'Used in listing pages, social feeds, and search snippets.',
     }),
     defineField({
-      name: 'readTime',
-      title: 'Read Time (e.g. 5 min read)',
-      type: 'string',
-      initialValue: '5 min read',
+      name: 'tags',
+      title: 'Tags',
+      type: 'array',
+      of: [{ type: 'string' }],
+      options: {
+        layout: 'tags',
+      },
     }),
     defineField({
       name: 'body',
@@ -144,6 +149,13 @@ export const postType = defineType({
           ],
         },
       ],
+    }),
+    defineField({
+      name: 'faqs',
+      title: 'FAQ Section',
+      description: 'Optional Q&A list shown at the bottom of this post. Also generates FAQPage rich-result schema for Google automatically.',
+      type: 'array',
+      of: [{ type: 'faq' }],
     }),
     defineField({
       name: 'seo',

@@ -8,6 +8,7 @@ import { getCaseStudyBySlug, getAllCaseStudies } from '@/sanity/client';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 import { CaseStudySchema } from '@/components/seo/SchemaMarkup';
 import { SocialShare } from '@/components/blog/SocialShare';
+import { FaqSection } from '@/components/home/FaqSection';
 import { constructMetadata } from '@/lib/seo';
 
 interface Props {
@@ -221,6 +222,17 @@ export default async function CaseStudyDetailPage({ params }: Props) {
           </div>
         </div>
       </div>
+
+      {/* FAQ Section (editor-driven, adds FAQPage rich-result schema) */}
+      {study.faqs && study.faqs.length > 0 && (
+        <FaqSection
+          faqs={study.faqs}
+          eyebrow="FAQ"
+          heading="Frequently Asked Questions"
+          subheading={`Common questions about the ${study.client} project.`}
+          id="case-study-faq"
+        />
+      )}
     </article>
   );
 }

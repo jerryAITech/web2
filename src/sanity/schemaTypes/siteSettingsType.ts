@@ -54,6 +54,13 @@ export const siteSettingsType = defineType({
       type: 'string',
     }),
     defineField({
+      name: 'faqs',
+      title: 'Homepage FAQ Section',
+      description: 'Q&A list shown in the homepage FAQ section. Also generates FAQPage rich-result schema for Google automatically. Leave empty to use the built-in default questions.',
+      type: 'array',
+      of: [{ type: 'faq' }],
+    }),
+    defineField({
       name: 'redirects',
       title: '301 URL Redirects Table',
       type: 'array',

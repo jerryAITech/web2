@@ -12,28 +12,28 @@ export function HeroSection() {
       {/* Top Ambient Glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gradient-to-tr from-cyan-500/20 to-teal-500/20 blur-[130px] rounded-full pointer-events-none" />
 
-      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
         {/* Main H1 Headline */}
         <ScrollReveal direction="up" delay={0.2}>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.1] mb-6">
+          <h1 className="font-display text-[26px] sm:text-[32px] md:text-[40px] lg:text-[50px] font-extrabold text-white tracking-[-1px] leading-[1.2] mb-6">
             Driving Enterprise Growth with Innovative Software{' '}
-            <span className="text-teal-400">Solution</span>
+            <span className="text-[#00c9a7]">Solution</span>
           </h1>
         </ScrollReveal>
 
         {/* Feature Badges */}
         <ScrollReveal direction="up" delay={0.4}>
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 mb-10 text-xs sm:text-sm text-gray-200 uppercase tracking-wide">
-            <div className="flex items-center gap-2 bg-gray-900/60 border border-gray-800 px-4 py-2 rounded-full">
-              <CheckCircle2 className="w-4 h-4 text-teal-400" />
+            <div className="badge-teal non_dot bg-transparent">
+              <CheckCircle2 className="w-4 h-4 text-[#00c9a7]" />
               <span>Full-Cycle Development</span>
             </div>
-            <div className="flex items-center gap-2 bg-gray-900/60 border border-gray-800 px-4 py-2 rounded-full">
-              <CheckCircle2 className="w-4 h-4 text-teal-400" />
+            <div className="badge-teal non_dot bg-transparent">
+              <CheckCircle2 className="w-4 h-4 text-[#00c9a7]" />
               <span>Enterprise-Focused Solutions</span>
             </div>
-            <div className="flex items-center gap-2 bg-gray-900/60 border border-gray-800 px-4 py-2 rounded-full">
-              <CheckCircle2 className="w-4 h-4 text-teal-400" />
+            <div className="badge-teal non_dot bg-transparent">
+              <CheckCircle2 className="w-4 h-4 text-[#00c9a7]" />
               <span>Global Delivery & Support</span>
             </div>
           </div>
@@ -41,12 +41,9 @@ export function HeroSection() {
 
         {/* CTA Button */}
         <ScrollReveal direction="up" delay={0.5}>
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-teal-500 hover:bg-teal-400 text-black font-extrabold text-base transition-all shadow-xl shadow-teal-500/20 hover:shadow-teal-500/35 group"
-          >
+          <Link href="/contact" className="btn-teal-primary group">
             <span>Book A Discovery Call</span>
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
           </Link>
         </ScrollReveal>
       </div>

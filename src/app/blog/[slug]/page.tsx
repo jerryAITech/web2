@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { Clock, Calendar, ArrowLeft, ArrowRight, Tag, BookOpen } from 'lucide-react';
+import { Clock, Calendar, ArrowLeft, ArrowRight, Tag } from 'lucide-react';
 import { getBlogPostBySlug, getAllBlogPosts } from '@/sanity/client';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 import { BlogPostingSchema } from '@/components/seo/SchemaMarkup';
@@ -11,6 +11,7 @@ import { PortableTextRenderer } from '@/components/blog/PortableTextRenderer';
 import { SocialShare } from '@/components/blog/SocialShare';
 import { YoastSeoBox } from '@/components/seo/YoastSeoBox';
 import { BlogCard } from '@/components/blog/BlogCard';
+import { FaqSection } from '@/components/home/FaqSection';
 import { constructMetadata } from '@/lib/seo';
 
 interface Props {
@@ -97,11 +98,14 @@ export default async function BlogPostDetailPage({ params }: Props) {
         {/* Header */}
         <header className="pb-8 border-b border-gray-800/80">
           <div className="flex flex-wrap items-center gap-3 mb-4">
-            {post.category && (
-              <span className="bg-teal-500 text-black text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
-                {post.category.title}
+            {post.categories?.map((cat) => (
+              <span
+                key={cat.slug}
+                className="bg-teal-500 text-black text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider"
+              >
+                {cat.title}
               </span>
-            )}
+            ))}
             <span className="flex items-center gap-1 text-xs text-gray-400 font-mono">
               <Calendar className="w-3.5 h-3.5 text-teal-400" /> {formattedDate}
             </span>
@@ -158,41 +162,9 @@ export default async function BlogPostDetailPage({ params }: Props) {
           {post.content ? (
             <PortableTextRenderer value={post.content} />
           ) : (
-            <>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white mt-8 mb-4">
-                1. Architectural Fundamentals
-              </h2>
-              <p>
-                When building systems for high-throughput enterprise demands, selecting the right decoupling strategies is essential. Legacy monoliths struggle with horizontal auto-scaling due to shared database bottlenecks and synchronous blocking I/O calls.
-              </p>
-
-              <blockquote className="border-l-4 border-teal-400 pl-5 my-6 italic text-gray-200 bg-teal-950/20 py-3 rounded-r-lg">
-                &ldquo;Architecture is about the important stuff. Whatever that is. In enterprise systems, it starts with resilience and decoupled failure boundaries.&rdquo;
-              </blockquote>
-
-              <h2 className="text-2xl sm:text-3xl font-bold text-teal-400 mt-8 mb-4">
-                2. Data Integrity and Distributed Transactions
-              </h2>
-              <p>
-                Implementing the Saga pattern with event-driven message brokers (such as Apache Kafka or RabbitMQ) ensures that distributed multi-service operations achieve eventual consistency without locking database rows across microservices.
-              </p>
-
-              <div className="bg-[#0b101f] border border-gray-800 p-6 rounded-2xl my-6">
-                <h3 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
-                  <BookOpen className="w-4 h-4 text-teal-400" /> Key Engineering Takeaway
-                </h3>
-                <p className="text-sm text-gray-300 mb-0">
-                  Always design idempotent API endpoints with unique correlation IDs so that network retries do not trigger duplicate database transactions or side effects.
-                </p>
-              </div>
-
-              <h2 className="text-2xl sm:text-3xl font-bold text-white mt-8 mb-4">
-                3. Continuous Monitoring & Zero-Downtime Releases
-              </h2>
-              <p>
-                Pairing automated Canary deployments with OpenTelemetry tracing ensures that any regression in response latency or error rates triggers an instantaneous automated rollback before users notice.
-              </p>
-            </>
+            <p className="text-gray-500 italic">
+              This post doesn&apos;t have any body content yet. Add it in the Post Content field in the Studio.
+            </p>
           )}
         </div>
 
@@ -239,6 +211,17 @@ export default async function BlogPostDetailPage({ params }: Props) {
           </div>
         )}
       </div>
+
+      {/* FAQ Section (editor-driven, adds FAQPage rich-result schema) */}
+      {post.faqs && post.faqs.length > 0 && (
+        <FaqSection
+          faqs={post.faqs}
+          eyebrow="FAQ"
+          heading="Frequently Asked Questions"
+          subheading={`Common questions readers ask about ${post.title}.`}
+          id="post-faq"
+        />
+      )}
     </article>
   );
 }

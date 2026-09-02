@@ -118,6 +118,13 @@ export const caseStudyType = defineType({
       ],
     }),
     defineField({
+      name: 'faqs',
+      title: 'FAQ Section',
+      description: 'Optional Q&A list shown at the bottom of this case study. Also generates FAQPage rich-result schema for Google automatically.',
+      type: 'array',
+      of: [{ type: 'faq' }],
+    }),
+    defineField({
       name: 'seo',
       title: 'Yoast SEO Settings',
       type: 'seo',

@@ -15,6 +15,33 @@ export const siteSettings: SiteSettings = {
     twitter: "https://twitter.com/zyntechlabs",
     github: "https://github.com/zyntechlabs",
   },
+  faqs: [
+    {
+      question: "What types of custom enterprise software does ZynTech Labs develop?",
+      answer:
+        "We architect and build end-to-end custom enterprise software systems including high-throughput core banking engines, real-time fleet telematics & dispatch platforms, AI document processing pipelines, multi-tenant B2B SaaS platforms, and HIPAA-compliant healthcare portals.",
+    },
+    {
+      question: "How does the discovery call and project engagement process work?",
+      answer:
+        "After you book a discovery call via our contact form, our senior solutions architect meets with your technical stakeholders to audit requirements. Within 48 hours, we provide an architectural blueprint, tech stack recommendations, milestone timelines, and fixed or dedicated team pricing options.",
+    },
+    {
+      question: "Do we own 100% of the source code and intellectual property?",
+      answer:
+        "Yes, absolutely. Upon milestone completion, 100% of the custom source code, documentation, CI/CD deployment scripts, and intellectual property rights are fully transferred to your company under our standard Master Services Agreement.",
+    },
+    {
+      question: "How does your Next.js + Headless CMS setup compare to WordPress?",
+      answer:
+        "Our Next.js architecture provides sub-second page loads (<1.0s LCP), zero plugin security vulnerabilities, perfect 98–100 Google Core Web Vitals, and a modern Sanity.io CMS dashboard with real-time Yoast-style SEO controls and visual editing.",
+    },
+    {
+      question: "What are your standard delivery timelines for MVP and enterprise scale platforms?",
+      answer:
+        "Typical enterprise MVP delivery spans 6 to 10 weeks. For large-scale distributed platforms requiring complex IoT or microservice integrations, we operate on bi-weekly agile sprint cadences with continuous automated testing and deployment.",
+    },
+  ],
 };
 
 export const caseStudiesData: CaseStudy[] = [
@@ -121,10 +148,10 @@ export const blogPostsData: BlogPost[] = [
       avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
       bio: "Alex is a veteran cloud architect specializing in high-throughput distributed systems.",
     },
-    category: {
-      title: "Cloud & DevOps",
-      slug: "cloud-devops",
-    },
+    categories: [
+      { title: "Cloud & DevOps", slug: "cloud-devops" },
+      { title: "Architecture", slug: "architecture" },
+    ],
     tags: ["Microservices", "Kubernetes", "Architecture", "Enterprise"],
     seo: {
       metaTitle: "How Enterprise Companies Are Scaling Microservices in 2026 | ZynTech Labs",
@@ -150,10 +177,7 @@ export const blogPostsData: BlogPost[] = [
       avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80",
       bio: "Priya leads AI research & logistics automation deployments at ZynTech Labs.",
     },
-    category: {
-      title: "AI & Automation",
-      slug: "ai-automation",
-    },
+    categories: [{ title: "AI & Automation", slug: "ai-automation" }],
     tags: ["AI", "Logistics", "Automation", "Machine Learning"],
     seo: {
       metaTitle: "The Future of AI Automation in Supply Chain & Logistics | ZynTech Labs",
@@ -179,10 +203,7 @@ export const blogPostsData: BlogPost[] = [
       avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
       bio: "Alex is a veteran cloud architect specializing in high-throughput distributed systems.",
     },
-    category: {
-      title: "Fintech & Security",
-      slug: "fintech-security",
-    },
+    categories: [{ title: "Fintech & Security", slug: "fintech-security" }],
     tags: ["Fintech", "Cybersecurity", "Compliance", "Architecture"],
     seo: {
       metaTitle: "Building High-Security Fintech Platforms: A Compliance Guide | ZynTech Labs",
@@ -199,99 +220,196 @@ export const industriesData = [
     id: "fintech",
     title: "Fintech & Banking",
     tag: "Finance",
-    icon: "Landmark",
-    shortDesc: "Scalable core banking, digital wallets, payment gateways, and fraud detection systems.",
+    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/fintech_and_banking.webp",
+    shortDesc:
+      "We excel in building state-of-the-art fintech and bank software solutions that provide modern financial institutions with innovative technology solutions.",
     fullDesc:
-      "We engineer ultra-secure, PCI-DSS compliant financial technology solutions with sub-millisecond transaction handling, automated AML/KYC checks, and custom payment ledger architectures.",
-    features: ["Core Banking Systems", "Multi-Currency Wallets", "Automated Fraud Detection", "Payment Gateway Integration"],
+      "We excel in building state-of-the-art fintech and bank software solutions that provide modern financial institutions with innovative technology solutions. Our expertise include payment gateway software, digital wallet technology, core banking integration solutions, fraud prevention systems, and compliance technologies like KYC/Audit Management are part of our services.",
   },
   {
     id: "logistics",
     title: "Logistics & Supply Chain",
     tag: "Logistics",
-    icon: "Truck",
-    shortDesc: "End-to-end fleet tracking, warehouse automation, route optimization, and telematics.",
+    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/logistics.webp",
+    shortDesc:
+      "Using advanced digital technologies, we help logistics and supply chain companies optimize their operations.",
     fullDesc:
-      "Enterprise dispatch platforms, IoT fleet monitoring, automated geofencing, and predictive arrival algorithms for global freight carriers and on-demand delivery networks.",
-    features: ["Automated Dispatch Engine", "IoT Telematics & GPS", "Warehouse Management (WMS)", "Driver Mobile Apps"],
-  },
-  {
-    id: "healthcare",
-    title: "Healthcare & MedTech",
-    tag: "Healthcare",
-    icon: "HeartPulse",
-    shortDesc: "HIPAA-compliant telemedicine, EHR systems, diagnostic AI, and patient portals.",
-    fullDesc:
-      "Secure digital health ecosystems designed for hospitals, clinics, and medical startups, providing seamless patient scheduling, encrypted health records, and diagnostic intelligence.",
-    features: ["HIPAA-Compliant EHR", "Telehealth Video Systems", "Medical IoT Integration", "Patient Billing Portals"],
-  },
-  {
-    id: "ecommerce",
-    title: "Retail & E-Commerce",
-    tag: "Retail",
-    icon: "ShoppingBag",
-    shortDesc: "High-volume headless commerce, omnichannel POS, inventory sync, and AI recommendation engines.",
-    fullDesc:
-      "Modern e-commerce architectures built for global retail brands requiring instant product search, real-time inventory management across warehouses, and lightning-fast checkout.",
-    features: ["Headless Commerce", "Omnichannel Inventory Sync", "AI Product Recommendations", "Custom POS Systems"],
-  },
-  {
-    id: "saas",
-    title: "Enterprise SaaS",
-    tag: "B2B SaaS",
-    icon: "Cloud",
-    shortDesc: "Multi-tenant B2B platforms, subscription billing, RBAC security, and analytics dashboards.",
-    fullDesc:
-      "Turnkey SaaS product development from inception to enterprise scale. We build multi-tenant databases, robust billing engines, and granular role-based access control.",
-    features: ["Multi-Tenant Architecture", "Stripe / LemonSqueezy Billing", "Granular RBAC Security", "Custom Analytics BI"],
+      "Using advanced digital technologies, we help logistics and supply chain companies optimize their operations. We design and implement digital solutions for fleet management, GPS asset tracking, dispatch optimization, warehouse management software, and multi-carrier integration solutions for the logistics industry.",
   },
   {
     id: "realestate",
-    title: "Real Estate & PropTech",
-    tag: "PropTech",
-    icon: "Building2",
-    shortDesc: "Property management software, VR virtual tours, automated lease agreements, and CRM portals.",
+    title: "Real Estate",
+    tag: "Real Estate",
+    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/real_estate.webp",
+    shortDesc:
+      "Our company helps real estate businesses leverage technology for their digital transformation by providing innovative technology solutions for them.",
     fullDesc:
-      "Digital platforms for real estate developers, brokers, and property managers to streamline listing distribution, tenant screening, lease automation, and maintenance tickets.",
-    features: ["Property Listing Portals", "Automated Lease Contracts", "Tenant & Owner Portals", "Smart Metering IoT"],
+      "Our company helps real estate businesses leverage technology for their digital transformation by providing innovative technology solutions for them. We create property management platforms, virtual tour solutions, CRM automation, secure payment solutions, and more that simplify operations and enhance the buyer journey.",
+  },
+  {
+    id: "telecom",
+    title: "Telecom",
+    tag: "Telecom",
+    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/telecom.webp",
+    shortDesc:
+      "We create advanced telecom software solutions aimed at helping businesses improve connectivity and efficiency.",
+    fullDesc:
+      "We create advanced telecom software solutions aimed at helping businesses improve connectivity and efficiency. Our solutions include BSS/OSS integrations, billing and charging solutions, network monitoring solutions, USSD/IVR solutions, and more.",
+  },
+  {
+    id: "towing",
+    title: "Towing & Roadside Services",
+    tag: "Roadside",
+    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/towing.webp",
+    shortDesc:
+      "Our company delivers purpose-built technology solutions for towing and roadside assistance providers.",
+    fullDesc:
+      "Our company delivers purpose-built technology solutions for towing and roadside assistance providers. We develop dispatch management systems, driver operation platforms, GPS tracking solutions, insurance integrations, and self-service customer booking portals that improve response times and service efficiency.",
+  },
+  {
+    id: "enterprise",
+    title: "Other Enterprise Verticals",
+    tag: "Enterprise",
+    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/enterprise.webp",
+    shortDesc:
+      "We also support healthcare, e-commerce and other new industries.",
+    fullDesc:
+      "We also support healthcare, e-commerce and other new industries. Whether it's complex workflows, critical systems, or a large digital setup your company requires, we step up when it matters the most.",
   },
 ];
 
 export const servicesData = [
   {
-    icon: "Code2",
-    title: "Custom Enterprise Software",
-    description:
-      "Tailor-made software architectures designed specifically for your business workflows, removing operational inefficiencies and automating high-volume business tasks.",
-  },
-  {
-    icon: "Smartphone",
+    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/mobile_app_develop.webp",
     title: "Mobile App Development",
     description:
-      "High-performance native and cross-platform iOS & Android mobile applications with offline-first sync, biometric security, and responsive UX.",
+      "We develop native apps for iOS and Android, and use React Native and Flutter for cross-platform options. Our aim? To deliver top-notch mobile experiences that run smoothly, stay dependable, and scale up to keep users hooked.",
   },
   {
-    icon: "Sparkles",
-    title: "AI & Machine Learning",
+    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/web_and_development.webp",
+    title: "Web & Enterprise Platform Development",
     description:
-      "Custom AI models, predictive analytics, intelligent OCR document processing, and generative AI copilot integrations built into your workflow.",
+      "Ensure secure and scalable web applications, enterprise portals, customer platforms and internal business systems. Designed with contemporary technologies and strong architectures to facilitate sustainable development and operational efficiency.",
   },
   {
-    icon: "CloudRain",
-    title: "Cloud & DevOps Engineering",
+    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/saas.webp",
+    title: "SaaS & Custom Software Development",
     description:
-      "Scalable AWS, GCP, and Azure cloud infrastructure with automated CI/CD pipelines, Kubernetes container orchestration, and 99.99% high-availability.",
+      "We develop scalable SaaS solutions and custom software which will support you in achieving your business objectives. From strategy to support, we create apps that enhance growth and creativity, ensuring security and top performance too.",
   },
   {
-    icon: "Layers",
-    title: "UI/UX Product Design",
+    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/ux_ui.webp",
+    title: "UI/UX & Product Design",
     description:
-      "Data-driven user experience design, comprehensive design systems, clickable prototypes, and conversion-optimized enterprise interfaces.",
+      "User-centered design backed by research, strategy, and data. We develop simple digital experiences, design systems that scale to any size, and interfaces that are conversion-driven to increase adoption and ROI.",
   },
   {
-    icon: "ShieldCheck",
-    title: "Cybersecurity & Compliance",
+    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/cloud_engineering.webp",
+    title: "Cloud Engineering & DevOps",
     description:
-      "Zero-trust security implementations, comprehensive vulnerability testing, automated audit logging, and SOC2 / ISO / HIPAA compliance readiness.",
+      "Focus on cloud-native infrastructure for AWS, Azure and Google Cloud. We're experts in CI/CD automation, containerization, infra-as-code, security optimization, and making sure systems stay up and available.",
+  },
+  {
+    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/ai_intelligent.webp",
+    title: "AI & Intelligent Automation",
+    description:
+      "Utilize AI features and capabilities such as machine learning, NLP, computer vision, and predictive analytics in enterprise stuff. In software development, as well we do workflow automation.",
+  },
+];
+
+export const innovationData = [
+  {
+    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/ai_logo1.webp",
+    title: "Seamless Integration",
+    description:
+      "Our services comprise the integration of AI-powered solutions into your current setup to achieve seamless operation.",
+  },
+  {
+    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/ai_logo2.webp",
+    title: "Improved Decision Making",
+    description:
+      "Leverage the power of analytics and AI technologies to make more intelligent and prompt business decisions.",
+  },
+  {
+    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/ai_logo3.webp",
+    title: "Enterprise-Level Security",
+    description:
+      "Help secure your sensitive information by encrypting them with the help of security techniques.",
+  },
+  {
+    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/ai_logo4.webp",
+    title: "AI Customization",
+    description:
+      "We develop custom artificial intelligence systems based on the unique needs of your business.",
+  },
+  {
+    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/ai_logo5.webp",
+    title: "Real-Time Monitoring",
+    description:
+      "Monitor your system's performance with live monitoring reports and dashboards.",
+  },
+  {
+    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/ai_logo6.webp",
+    title: "Agile Development Methodology",
+    description:
+      "We develop using the agile approach which makes enterprise software development process management easier for both.",
+  },
+];
+
+export const trustedByLogos = [
+  "https://zyntechlabs.io/wp-content/uploads/2026/08/aj99@3x.webp",
+  "https://zyntechlabs.io/wp-content/uploads/2026/08/alpha.webp",
+  "https://zyntechlabs.io/wp-content/uploads/2026/08/giggo.webp",
+  "https://zyntechlabs.io/wp-content/uploads/2026/08/wetap.webp",
+  "https://zyntechlabs.io/wp-content/uploads/2026/08/white_hawk.webp",
+];
+
+export const techStackRowOne = [
+  { name: "HTML", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/html.webp" },
+  { name: "CSS", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/css.webp" },
+  { name: "Vue Js", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/vue_js.webp" },
+  { name: "Kotlin", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/kotlin.webp" },
+  { name: "React", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/react.webp" },
+  { name: "Javascript", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/javascript.webp" },
+  { name: "Java", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/java.webp" },
+  { name: "Swift", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/swift.webp" },
+  { name: "Angular", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/angular.webp" },
+  { name: "SQL", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/sql.webp" },
+  { name: "PHP", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/php.webp" },
+  { name: "Objective C", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/c_lan.webp" },
+  { name: "Realm", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/realm.webp" },
+  { name: "XML", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/xml.webp" },
+];
+
+export const techStackRowTwo = [
+  { name: "Mongo DB", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/mongo_db.webp" },
+  { name: "TestNG", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/testng.webp" },
+  { name: "Github Actions", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/github.webp" },
+  { name: "Python", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/python.webp" },
+  { name: ".Net", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/dot_net.webp" },
+  { name: "Shopify", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/shopify.webp" },
+  { name: "Wordpress", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/wordpress.webp" },
+  { name: "DevOps", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/devops.webp" },
+  { name: "Kubernetes", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/kubernetes.webp" },
+  { name: "Selenium", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/selenium.webp" },
+  { name: "Node.js", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/node_js.webp" },
+];
+
+export const enterprisePillars = [
+  {
+    title: "Security-First Engineering",
+    desc: "End-to-End (E2E) Encryption, penetration testing and compliance ready architecture to enterprise standards.",
+  },
+  {
+    title: "SLA-Backed Delivery",
+    desc: "Defined uptime commitments, incident response procedures, and escalation plans to guarantee reliability.",
+  },
+  {
+    title: "Scalable Systems",
+    desc: "Architecture that grows from pilot to millions of users without rearchitecting.",
+  },
+  {
+    title: "Dedicated Teams",
+    desc: "For every engagement, the team includes engineers, product leads and account managers for complete transparency and accountability.",
   },
 ];

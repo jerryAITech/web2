@@ -21,10 +21,17 @@ export function BlogCard({ post }: { post: BlogPost }) {
           className="object-cover group-hover:scale-105 transition-transform duration-500"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
-        {post.category && (
-          <span className="absolute top-4 left-4 bg-teal-500/90 text-black text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">
-            {post.category.title}
-          </span>
+        {post.categories && post.categories.length > 0 && (
+          <div className="absolute top-4 left-4 flex flex-wrap gap-1.5">
+            {post.categories.map((cat) => (
+              <span
+                key={cat.slug}
+                className="bg-teal-500/90 text-black text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm"
+              >
+                {cat.title}
+              </span>
+            ))}
+          </div>
         )}
       </Link>
 

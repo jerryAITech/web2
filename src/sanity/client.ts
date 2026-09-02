@@ -2,6 +2,15 @@ import { createClient, type QueryParams } from 'next-sanity';
 import { apiVersion, dataset, projectId, useCdn, isSanityProjectConfigured } from './env';
 import { blogPostsData, caseStudiesData, siteSettings as defaultSiteSettings } from '@/lib/fallbackData';
 import { BlogPost, CaseStudy, Page, SiteSettings } from '@/types';
+import { calculateReadTime } from '@/lib/utils';
+
+// Merges the legacy single `category` reference with the new `categories`
+// array so posts tagged before the multi-category field existed keep showing up.
+const CATEGORIES_PROJECTION = `"categories": select(
+  count(categories) > 0 => categories[]->{ title, "slug": slug.current },
+  defined(category) => [category->{ title, "slug": slug.current }],
+  []
+)`;
 
 export const isSanityConfigured = isSanityProjectConfigured;
 
@@ -54,6 +63,7 @@ export async function getSiteSettings(): Promise<SiteSettings> {
       ga4Id,
       gtmId,
       googleVerification,
+      faqs,
       redirects
     }`,
     fallback: defaultSiteSettings,
@@ -70,6 +80,7 @@ export async function getSiteSettings(): Promise<SiteSettings> {
     gtmId: result?.gtmId || defaultSiteSettings.gtmId,
     googleVerification: result?.googleVerification || defaultSiteSettings.googleVerification,
     socials: result?.socials || defaultSiteSettings.socials,
+    faqs: result?.faqs?.length ? result.faqs : defaultSiteSettings.faqs,
   };
 }
 
@@ -82,19 +93,18 @@ export async function getAllBlogPosts(): Promise<BlogPost[]> {
       excerpt,
       "coverImage": mainImage.asset->url,
       publishedAt,
-      readTime,
       author->{ name, "slug": slug.current, role, "avatar": avatar.asset->url, bio },
-      category->{ title, "slug": slug.current },
+      ${CATEGORIES_PROJECTION},
+      tags,
+      "content": body,
       seo
     }`,
     fallback: blogPostsData,
     tags: ['post'],
   });
 
-  if (result && Array.isArray(result) && result.length > 0) {
-    return result;
-  }
-  return blogPostsData;
+  const posts = result && Array.isArray(result) && result.length > 0 ? result : blogPostsData;
+  return posts.map((post) => ({ ...post, readTime: calculateReadTime(post.content) }));
 }
 
 export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
@@ -106,10 +116,11 @@ export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> 
       excerpt,
       "coverImage": mainImage.asset->url,
       publishedAt,
-      readTime,
       author->{ name, "slug": slug.current, role, "avatar": avatar.asset->url, bio },
-      category->{ title, "slug": slug.current },
-      body,
+      ${CATEGORIES_PROJECTION},
+      tags,
+      "content": body,
+      faqs,
       seo
     }`,
     params: { slug },
@@ -117,7 +128,8 @@ export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> 
     tags: [`post:${slug}`],
   });
 
-  return post || blogPostsData.find((p) => p.slug === slug) || null;
+  const resolved = post || blogPostsData.find((p) => p.slug === slug) || null;
+  return resolved ? { ...resolved, readTime: calculateReadTime(resolved.content) } : null;
 }
 
 export async function getAllCaseStudies(): Promise<CaseStudy[]> {
@@ -168,6 +180,7 @@ export async function getCaseStudyBySlug(slug: string): Promise<CaseStudy | null
       metrics,
       techStack,
       testimonial,
+      faqs,
       seo
     }`,
     params: { slug },
@@ -204,6 +217,7 @@ export async function getPageBySlug(slug: string): Promise<Page | null> {
       tagline,
       "heroImage": heroImage.asset->url,
       body,
+      faqs,
       seo
     }`,
     params: { slug },

@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { getPageBySlug, getAllPages } from '@/sanity/client';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 import { PortableTextRenderer } from '@/components/blog/PortableTextRenderer';
+import { FaqSection } from '@/components/home/FaqSection';
 import { constructMetadata } from '@/lib/seo';
 
 interface Props {
@@ -85,6 +86,17 @@ export default async function StandalonePage({ params }: Props) {
           </div>
         )}
       </div>
+
+      {/* FAQ Section (editor-driven, adds FAQPage rich-result schema) */}
+      {page.faqs && page.faqs.length > 0 && (
+        <FaqSection
+          faqs={page.faqs}
+          eyebrow="FAQ"
+          heading="Frequently Asked Questions"
+          subheading={`Common questions readers ask about ${page.title}.`}
+          id="page-faq"
+        />
+      )}
     </article>
   );
 }

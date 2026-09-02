@@ -208,17 +208,17 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/#industries" className="hover:text-white transition-colors">
-                  Healthcare & MedTech
+                  Real Estate
                 </Link>
               </li>
               <li>
                 <Link href="/#industries" className="hover:text-white transition-colors">
-                  Retail & E-Commerce
+                  Telecom
                 </Link>
               </li>
               <li>
                 <Link href="/#industries" className="hover:text-white transition-colors">
-                  Enterprise SaaS
+                  Towing & Roadside Services
                 </Link>
               </li>
             </ul>

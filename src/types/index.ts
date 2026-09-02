@@ -25,6 +25,11 @@ export interface Category {
   description?: string;
 }
 
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
 export interface BlogPost {
   _id?: string;
   title: string;
@@ -34,9 +39,10 @@ export interface BlogPost {
   publishedAt: string;
   readTime?: string;
   author?: Author;
-  category?: Category;
+  categories?: Category[];
   tags?: string[];
   content?: any; // PortableText or HTML/Markdown content
+  faqs?: FaqItem[];
   seo?: SeoMetadata;
 }
 
@@ -67,6 +73,7 @@ export interface CaseStudy {
     position: string;
     company: string;
   };
+  faqs?: FaqItem[];
   seo?: SeoMetadata;
 }
 
@@ -77,6 +84,7 @@ export interface Page {
   tagline?: string;
   heroImage?: string;
   body?: any; // PortableText content
+  faqs?: FaqItem[];
   seo?: SeoMetadata;
 }
 
@@ -97,5 +105,6 @@ export interface SiteSettings {
     github?: string;
     facebook?: string;
   };
+  faqs?: FaqItem[];
   redirects?: Array<{ source: string; destination: string; permanent: boolean }>;
 }

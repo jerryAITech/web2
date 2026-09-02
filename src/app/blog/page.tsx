@@ -1,10 +1,10 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import { getAllBlogPosts } from '@/sanity/client';
-import { BlogCard } from '@/components/blog/BlogCard';
+import { BlogListClient } from '@/components/blog/BlogListClient';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 import { constructMetadata } from '@/lib/seo';
-import { Sparkles, Newspaper } from 'lucide-react';
+import { Newspaper } from 'lucide-react';
 
 export const metadata: Metadata = constructMetadata({
   title: 'Engineering & Technology Insights Blog',
@@ -15,11 +15,6 @@ export const metadata: Metadata = constructMetadata({
 
 export default async function BlogPage() {
   const posts = await getAllBlogPosts();
-
-  // Extract unique categories
-  const categories = Array.from(
-    new Set(posts.map((p) => p.category?.title).filter(Boolean))
-  );
 
   return (
     <div className="min-h-screen bg-[#070b16] text-white pt-24 pb-20">
@@ -40,31 +35,7 @@ export default async function BlogPage() {
           </p>
         </div>
 
-        {/* Category Filter Pills */}
-        <div className="flex flex-wrap items-center gap-2.5 pb-10 border-b border-gray-800/80 mb-12">
-          <button
-            type="button"
-            className="px-4 py-2 rounded-xl bg-teal-500 text-black text-xs font-extrabold shadow-md shadow-teal-500/20"
-          >
-            All Articles ({posts.length})
-          </button>
-          {categories.map((cat, i) => (
-            <button
-              key={i}
-              type="button"
-              className="px-4 py-2 rounded-xl bg-gray-900/80 hover:bg-gray-800 text-gray-300 hover:text-white text-xs font-semibold border border-gray-800 transition-colors"
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        {/* Blog Post Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {posts.map((post) => (
-            <BlogCard key={post._id || post.slug} post={post} />
-          ))}
-        </div>
+        <BlogListClient posts={posts} />
       </div>
     </div>
   );
