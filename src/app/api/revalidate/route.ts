@@ -3,6 +3,11 @@ import { type NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest) {
   try {
+    const secret = process.env.SANITY_REVALIDATE_SECRET;
+    if (secret && req.headers.get('x-revalidate-secret') !== secret) {
+      return NextResponse.json({ message: 'Invalid secret' }, { status: 401 });
+    }
+
     const body = await req.json();
 
     // Revalidate specific tags based on changed document type
@@ -12,10 +17,12 @@ export async function POST(req: NextRequest) {
     if (docType === 'post') {
       revalidateTag('post', 'default');
       revalidatePath('/blog');
+      revalidatePath('/sitemap.xml');
       if (slug) revalidatePath(`/blog/${slug}`);
     } else if (docType === 'caseStudy') {
       revalidateTag('caseStudy', 'default');
       revalidatePath('/case-studies');
+      revalidatePath('/sitemap.xml');
       if (slug) revalidatePath(`/case-study/${slug}`);
     } else if (docType === 'page') {
       revalidateTag('page', 'default');
@@ -24,6 +31,7 @@ export async function POST(req: NextRequest) {
     } else if (docType === 'siteSettings') {
       revalidateTag('siteSettings', 'default');
       revalidatePath('/', 'layout');
+      revalidatePath('/sitemap.xml');
     }
 
     return NextResponse.json({

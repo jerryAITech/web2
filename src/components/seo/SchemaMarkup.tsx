@@ -1,11 +1,12 @@
 import React from 'react';
+import { SITE_URL } from '@/lib/seo';
 
 export function OrganizationSchema() {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'ZynTech Labs',
-    url: 'https://zyntechlabs.io',
+    url: SITE_URL,
     logo: 'https://zyntechlabs.io/image/zyntech_logo.svg',
     description:
       'Custom enterprise software development agency building scalable software, mobile apps, SaaS platforms, AI automation and cloud solutions.',
@@ -35,12 +36,7 @@ export function WebSiteSchema() {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'ZynTech Labs',
-    url: 'https://zyntechlabs.io',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: 'https://zyntechlabs.io/blog?search={search_term_string}',
-      'query-input': 'required name=search_term_string',
-    },
+    url: SITE_URL,
   };
 
   return (

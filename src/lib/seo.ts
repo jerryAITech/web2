@@ -2,6 +2,10 @@ import type { Metadata } from 'next';
 import { SeoMetadata, SiteSettings } from '@/types';
 import { siteSettings as defaultSettings } from './fallbackData';
 
+// Fallback used by components that render before/without a settings fetch (e.g. structured data
+// on statically-rendered pages). Prefer passing the live Sanity siteUrl through props where possible.
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://zyntechlabs.io';
+
 interface GenerateMetaProps {
   title?: string;
   description?: string;

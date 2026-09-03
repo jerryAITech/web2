@@ -12,7 +12,7 @@ import { SocialShare } from '@/components/blog/SocialShare';
 import { YoastSeoBox } from '@/components/seo/YoastSeoBox';
 import { BlogCard } from '@/components/blog/BlogCard';
 import { FaqSection } from '@/components/home/FaqSection';
-import { constructMetadata } from '@/lib/seo';
+import { constructMetadata, SITE_URL } from '@/lib/seo';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -62,7 +62,7 @@ export default async function BlogPostDetailPage({ params }: Props) {
     year: 'numeric',
   });
 
-  const pageUrl = `https://zyntechlabs.io/blog/${slug}`;
+  const pageUrl = `${SITE_URL}/blog/${slug}`;
 
   return (
     <article className="min-h-screen bg-[#070b16] text-white pt-24 pb-20">

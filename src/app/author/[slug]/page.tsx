@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 import { getAllBlogPosts } from '@/sanity/client';
 import { BlogCard } from '@/components/blog/BlogCard';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
-import { constructMetadata } from '@/lib/seo';
+import { constructMetadata, SITE_URL } from '@/lib/seo';
 import { User, Award, BookOpen } from 'lucide-react';
 
 interface Props {
@@ -54,7 +54,7 @@ export default async function AuthorProfilePage({ params }: Props) {
     worksFor: {
       '@type': 'Organization',
       name: 'ZynTech Labs',
-      url: 'https://zyntechlabs.io',
+      url: SITE_URL,
     },
     description: author.bio,
     image: author.avatar,

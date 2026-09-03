@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { ChevronRight, Home } from 'lucide-react';
 import { BreadcrumbSchema } from './SchemaMarkup';
+import { SITE_URL } from '@/lib/seo';
 
 export interface BreadcrumbItem {
   name: string;
@@ -18,7 +19,7 @@ export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
           name: item.name,
           url: item.url.startsWith('http')
             ? item.url
-            : `https://zyntechlabs.io${item.url}`,
+            : `${SITE_URL}${item.url}`,
         }))}
       />
       <nav aria-label="Breadcrumb" className="flex items-center space-x-2 text-xs md:text-sm text-gray-400">

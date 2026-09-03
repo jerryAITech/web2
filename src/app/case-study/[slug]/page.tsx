@@ -9,7 +9,7 @@ import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 import { CaseStudySchema } from '@/components/seo/SchemaMarkup';
 import { SocialShare } from '@/components/blog/SocialShare';
 import { FaqSection } from '@/components/home/FaqSection';
-import { constructMetadata } from '@/lib/seo';
+import { constructMetadata, SITE_URL } from '@/lib/seo';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -48,7 +48,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
     notFound();
   }
 
-  const pageUrl = `https://zyntechlabs.io/case-study/${slug}`;
+  const pageUrl = `${SITE_URL}/case-study/${slug}`;
 
   return (
     <article className="min-h-screen bg-[#070b16] text-white pt-24 pb-20">

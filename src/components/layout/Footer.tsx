@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowUpRight, Mail, Phone, MapPin, ShieldCheck, Send, CheckCircle2, Heart } from 'lucide-react';
+import { ArrowUpRight, Mail, Phone, MapPin, ShieldCheck, Send, CheckCircle2, Loader2 } from 'lucide-react';
 
 const socialLinks = [
   {
@@ -71,14 +71,32 @@ const socialLinks = [
 export function Footer() {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !email.includes('@')) return;
-    setSubscribed(true);
-    setTimeout(() => {
+
+    setSubmitting(true);
+    setError('');
+
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!res.ok) throw new Error('Subscription failed');
+
+      setSubscribed(true);
       setEmail('');
-    }, 4000);
+    } catch {
+      setError('Something went wrong. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -99,6 +117,27 @@ export function Footer() {
             <p className="text-sm text-gray-400 max-w-md leading-relaxed">
               We engineer scalable enterprise software, high-volume fintech engines, mobile apps, SaaS platforms, AI automation and cloud solutions for market leaders worldwide.
             </p>
+
+            {/* Direct Contact Details */}
+            <div className="space-y-2 pt-1 text-xs">
+              <a href="mailto:sales@zyntechlabs.io" className="flex items-center gap-2 hover:text-white transition-colors">
+                <Mail className="w-3.5 h-3.5 text-teal-400 flex-shrink-0" />
+                sales@zyntechlabs.io
+              </a>
+              <a href="tel:+17326327363" className="flex items-center gap-2 hover:text-white transition-colors">
+                <Phone className="w-3.5 h-3.5 text-teal-400 flex-shrink-0" />
+                +1 732-632-7363
+              </a>
+              <a
+                href="https://maps.app.goo.gl/f69fnwjQbrTDde5L7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-2 hover:text-white transition-colors"
+              >
+                <MapPin className="w-3.5 h-3.5 text-teal-400 flex-shrink-0 mt-0.5" />
+                170 Jordan Rd, Colonia, NJ 07067, USA
+              </a>
+            </div>
 
             {/* Social Media Profiles */}
             <div className="flex flex-wrap items-center gap-2.5 pt-2">
@@ -137,20 +176,23 @@ export function Footer() {
                 <input
                   type="email"
                   required
+                  disabled={submitting}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your enterprise work email..."
-                  className="w-full bg-[#070b16] border border-gray-800 rounded-xl px-4 py-2.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-teal-400"
+                  className="w-full bg-[#070b16] border border-gray-800 rounded-xl px-4 py-2.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-teal-400 disabled:opacity-60"
                 />
                 <button
                   type="submit"
-                  className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-teal-400 to-cyan-500 text-black font-extrabold text-xs hover:from-teal-300 hover:to-cyan-400 transition-all flex items-center gap-1.5 flex-shrink-0"
+                  disabled={submitting}
+                  className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-teal-400 to-cyan-500 text-black font-extrabold text-xs hover:from-teal-300 hover:to-cyan-400 transition-all flex items-center gap-1.5 flex-shrink-0 disabled:opacity-60"
                 >
-                  <span>Subscribe</span>
-                  <Send className="w-3 h-3" />
+                  <span>{submitting ? 'Sending...' : 'Subscribe'}</span>
+                  {submitting ? <Loader2 className="w-3 h-3 animate-spin" /> : <Send className="w-3 h-3" />}
                 </button>
               </form>
             )}
+            {error && <p className="text-xs text-rose-400 mt-2">{error}</p>}
           </div>
         </div>
 
