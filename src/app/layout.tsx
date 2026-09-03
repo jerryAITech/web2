@@ -64,7 +64,7 @@ export default async function RootLayout({
         </div>
 
         {/* Floating WhatsApp Support Button (Bottom-Left) */}
-        <WhatsAppButton />
+        <WhatsAppButton phoneNumber="17326327363" />
 
         {/* Floating Scroll-To-Top Progress Pill (Bottom-Center) */}
         <ScrollToTop />

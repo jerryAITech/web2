@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 
 export function WhatsAppButton({
-  phoneNumber = '1234567890',
+  phoneNumber = '17326327363',
   defaultMessage = 'Hi ZynTech Labs! I would like to discuss an enterprise software / AI project.',
 }: {
   phoneNumber?: string;

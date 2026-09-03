@@ -9,7 +9,6 @@ import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 import { BlogPostingSchema } from '@/components/seo/SchemaMarkup';
 import { PortableTextRenderer } from '@/components/blog/PortableTextRenderer';
 import { SocialShare } from '@/components/blog/SocialShare';
-import { YoastSeoBox } from '@/components/seo/YoastSeoBox';
 import { BlogCard } from '@/components/blog/BlogCard';
 import { FaqSection } from '@/components/home/FaqSection';
 import { constructMetadata, SITE_URL } from '@/lib/seo';
@@ -187,15 +186,6 @@ export default async function BlogPostDetailPage({ params }: Props) {
 
         {/* Social Share Strip */}
         <SocialShare title={post.title} url={pageUrl} />
-
-        {/* Yoast SEO Live Google SERP Preview Box */}
-        <div className="my-10">
-          <YoastSeoBox
-            title={post.seo?.metaTitle || post.title}
-            description={post.seo?.metaDescription || post.excerpt}
-            slug={`blog/${post.slug}`}
-          />
-        </div>
 
         {/* Related Posts Section */}
         {relatedPosts.length > 0 && (

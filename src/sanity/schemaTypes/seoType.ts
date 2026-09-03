@@ -1,9 +1,13 @@
 import { defineField, defineType } from 'sanity';
+import { SeoPreviewInput } from '../components/SeoPreview';
 
 export const seoType = defineType({
   name: 'seo',
   title: 'SEO & Social Sharing (Yoast SEO Style)',
   type: 'object',
+  components: {
+    input: SeoPreviewInput,
+  },
   fields: [
     defineField({
       name: 'metaTitle',
