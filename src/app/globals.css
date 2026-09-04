@@ -86,6 +86,10 @@ body {
   font-family: "Syne", sans-serif;
 }
 
+.font-dm-sans {
+  font-family: "DM Sans", sans-serif;
+}
+
 .badge-teal {
   display: inline-flex;
   align-items: center;
