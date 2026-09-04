@@ -102,6 +102,9 @@ npm run start
 5. Click **"Deploy"**. 
 6. Vercel will build and deploy both the **Website** and the **Sanity Studio CMS (`/studio`)** in under 60 seconds!
 
+For deploying to your own AWS EC2 server instead (including whether a database is needed —
+it isn't), see [DEPLOYMENT.md](./DEPLOYMENT.md).
+
 ---
 
 ## 📁 Key Project Folder Structure

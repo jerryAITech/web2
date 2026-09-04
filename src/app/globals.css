@@ -298,21 +298,21 @@ body {
 
 /* section background textures (same assets as zyntechlabs.io) */
 .circuit_bg {
-  background: url("https://zyntechlabs.io/wp-content/themes/zyntechlabs/assets/image/bg_pattern.webp") !important;
+  background: url("/images/bg_pattern.webp") !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
   background-position: center !important;
 }
 
 .cta_sec {
-  background: url("https://zyntechlabs.io/wp-content/themes/zyntechlabs/assets/image/ai_cta_bg.webp") !important;
+  background: url("/images/ai_cta_bg.webp") !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
   background-position: center !important;
 }
 
 .industries_cta_sec {
-  background: url("https://zyntechlabs.io/wp-content/themes/zyntechlabs/assets/image/industries_cta_bg.webp") !important;
+  background: url("/images/industries_cta_bg.webp") !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
   background-position: center !important;
@@ -529,7 +529,7 @@ body {
   left: 0;
   width: 450px;
   height: 450px;
-  background: url("https://zyntechlabs.io/wp-content/themes/zyntechlabs/assets/image/before_line_trans.webp") no-repeat !important;
+  background: url("/images/before_line_trans.webp") no-repeat !important;
   background-size: contain !important;
   pointer-events: none;
   z-index: 0;
@@ -542,7 +542,7 @@ body {
   bottom: 0;
   width: 370px;
   height: 400px;
-  background: url("https://zyntechlabs.io/wp-content/themes/zyntechlabs/assets/image/after_line_trans.webp") no-repeat !important;
+  background: url("/images/after_line_trans.webp") no-repeat !important;
   background-size: contain !important;
   pointer-events: none;
   z-index: 0;
@@ -696,7 +696,7 @@ body {
   left: 0;
   width: 450px;
   height: 450px;
-  background: url("https://zyntechlabs.io/wp-content/themes/zyntechlabs/assets/image/parther_zyntech_before.webp") no-repeat !important;
+  background: url("/images/parther_zyntech_before.webp") no-repeat !important;
   background-size: contain !important;
   pointer-events: none;
   z-index: 0;
@@ -708,7 +708,7 @@ body {
   bottom: 0;
   width: 400px;
   height: 200px;
-  background: url("https://zyntechlabs.io/wp-content/themes/zyntechlabs/assets/image/parther_zyntech_after.webp") no-repeat !important;
+  background: url("/images/parther_zyntech_after.webp") no-repeat !important;
   background-size: contain !important;
   pointer-events: none;
   z-index: 0;
@@ -839,7 +839,7 @@ body {
   background: var(--ink-tarzan-blue);
 }
 .partner_with_zyntech_tarzan {
-  background: url("https://zyntechlabs.io/wp-content/themes/zyntechlabs/assets/image/partner_zyntech_tarzan.webp") no-repeat !important;
+  background: url("/images/partner_zyntech_tarzan.webp") no-repeat !important;
   background-size: cover !important;
   background-position: center !important;
 }
@@ -871,12 +871,12 @@ body {
   border-radius: 30px;
 }
 .ready_to_build_tarzan {
-  background: url("https://zyntechlabs.io/wp-content/themes/zyntechlabs/assets/image/ready_to_build_bg.webp") no-repeat !important;
+  background: url("/images/ready_to_build_bg.webp") no-repeat !important;
   background-size: cover !important;
   background-position: center !important;
 }
 .key_challenges_tarzan {
-  background: url("https://zyntechlabs.io/wp-content/themes/zyntechlabs/assets/image/key_challenges_tarzan_bg.webp") no-repeat !important;
+  background: url("/images/key_challenges_tarzan_bg.webp") no-repeat !important;
   background-size: cover !important;
   background-position: center !important;
 }

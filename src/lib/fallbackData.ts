@@ -6,7 +6,7 @@ export const siteSettings: SiteSettings = {
   defaultTitle: "Custom Enterprise Software Development Company | ZynTech Labs",
   defaultDescription:
     "ZynTech Labs builds scalable enterprise software, mobile apps, SaaS platforms, AI automation and cloud solutions for fintech, logistics and growing businesses.",
-  defaultOgImage: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80",
+  defaultOgImage: "/images/unsplash/blog-fallback-cover.jpg",
   gtmId: "GTM-WFGWS5HN",
   ga4Id: "G-LPLPSRELWG",
   googleVerification: "google-site-verification-token",
@@ -51,7 +51,7 @@ export const caseStudiesData: CaseStudy[] = [
     client: "GIG Logistics",
     slug: "gig-logistics",
     tagline: "Enterprise Fleet Automation & Real-Time Tracking Platform",
-    heroImage: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/images/unsplash/case-study-gig-logistics-hero.jpg",
     category: "Logistics & Supply Chain",
     industry: "Logistics & Freight",
     overview:
@@ -93,7 +93,7 @@ export const caseStudiesData: CaseStudy[] = [
     client: "Tarzan Transport",
     slug: "tarzan-transport",
     tagline: "Cross-Border Fleet Management & Predictive Maintenance",
-    heroImage: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/images/unsplash/case-study-tarzan-transport-hero.jpg",
     category: "Fleet Telematics",
     industry: "Heavy Freight & Transportation",
     overview:
@@ -138,14 +138,14 @@ export const blogPostsData: BlogPost[] = [
     slug: "scaling-enterprise-microservices-2026",
     excerpt:
       "A deep dive into event-driven architectures, Kubernetes orchestration, and database sharding techniques for enterprise systems handling millions of transactions.",
-    coverImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
+    coverImage: "/images/unsplash/blog-microservices-cover.jpg",
     publishedAt: "2026-08-15T10:00:00Z",
     readTime: "7 min read",
     author: {
       name: "Alex Sterling",
       slug: "alex-sterling",
       role: "Lead Solutions Architect",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
+      avatar: "/images/unsplash/author-avatar-1.jpg",
       bio: "Alex is a veteran cloud architect specializing in high-throughput distributed systems.",
     },
     categories: [
@@ -167,14 +167,14 @@ export const blogPostsData: BlogPost[] = [
     slug: "ai-automation-supply-chain-logistics",
     excerpt:
       "Explore how predictive AI routing, autonomous warehouse sorting, and dynamic freight pricing are reshaping global logistics operations.",
-    coverImage: "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=1200&q=80",
+    coverImage: "/images/unsplash/blog-ai-automation-cover.jpg",
     publishedAt: "2026-08-20T14:30:00Z",
     readTime: "5 min read",
     author: {
       name: "Priya Sharma",
       slug: "priya-sharma",
       role: "Head of AI & Data Engineering",
-      avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80",
+      avatar: "/images/unsplash/author-avatar-2.jpg",
       bio: "Priya leads AI research & logistics automation deployments at ZynTech Labs.",
     },
     categories: [{ title: "AI & Automation", slug: "ai-automation" }],
@@ -193,14 +193,14 @@ export const blogPostsData: BlogPost[] = [
     slug: "building-high-security-fintech-platforms",
     excerpt:
       "Essential security practices, PCI-DSS compliance requirements, and end-to-end tokenization architectures for enterprise banking software.",
-    coverImage: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
+    coverImage: "/images/unsplash/blog-fintech-cover.jpg",
     publishedAt: "2026-08-24T09:15:00Z",
     readTime: "8 min read",
     author: {
       name: "Alex Sterling",
       slug: "alex-sterling",
       role: "Lead Solutions Architect",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
+      avatar: "/images/unsplash/author-avatar-1.jpg",
       bio: "Alex is a veteran cloud architect specializing in high-throughput distributed systems.",
     },
     categories: [{ title: "Fintech & Security", slug: "fintech-security" }],
@@ -220,7 +220,7 @@ export const industriesData = [
     id: "fintech",
     title: "Fintech & Banking",
     tag: "Finance",
-    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/fintech_and_banking.webp",
+    image: "/images/fintech_and_banking.webp",
     shortDesc:
       "We excel in building state-of-the-art fintech and bank software solutions that provide modern financial institutions with innovative technology solutions.",
     fullDesc:
@@ -230,7 +230,7 @@ export const industriesData = [
     id: "logistics",
     title: "Logistics & Supply Chain",
     tag: "Logistics",
-    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/logistics.webp",
+    image: "/images/logistics.webp",
     shortDesc:
       "Using advanced digital technologies, we help logistics and supply chain companies optimize their operations.",
     fullDesc:
@@ -240,7 +240,7 @@ export const industriesData = [
     id: "realestate",
     title: "Real Estate",
     tag: "Real Estate",
-    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/real_estate.webp",
+    image: "/images/real_estate.webp",
     shortDesc:
       "Our company helps real estate businesses leverage technology for their digital transformation by providing innovative technology solutions for them.",
     fullDesc:
@@ -250,7 +250,7 @@ export const industriesData = [
     id: "telecom",
     title: "Telecom",
     tag: "Telecom",
-    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/telecom.webp",
+    image: "/images/telecom.webp",
     shortDesc:
       "We create advanced telecom software solutions aimed at helping businesses improve connectivity and efficiency.",
     fullDesc:
@@ -260,7 +260,7 @@ export const industriesData = [
     id: "towing",
     title: "Towing & Roadside Services",
     tag: "Roadside",
-    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/towing.webp",
+    image: "/images/towing.webp",
     shortDesc:
       "Our company delivers purpose-built technology solutions for towing and roadside assistance providers.",
     fullDesc:
@@ -270,7 +270,7 @@ export const industriesData = [
     id: "enterprise",
     title: "Other Enterprise Verticals",
     tag: "Enterprise",
-    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/enterprise.webp",
+    image: "/images/enterprise.webp",
     shortDesc:
       "We also support healthcare, e-commerce and other new industries.",
     fullDesc:
@@ -280,37 +280,37 @@ export const industriesData = [
 
 export const servicesData = [
   {
-    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/mobile_app_develop.webp",
+    image: "/images/mobile_app_develop.webp",
     title: "Mobile App Development",
     description:
       "We develop native apps for iOS and Android, and use React Native and Flutter for cross-platform options. Our aim? To deliver top-notch mobile experiences that run smoothly, stay dependable, and scale up to keep users hooked.",
   },
   {
-    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/web_and_development.webp",
+    image: "/images/web_and_development.webp",
     title: "Web & Enterprise Platform Development",
     description:
       "Ensure secure and scalable web applications, enterprise portals, customer platforms and internal business systems. Designed with contemporary technologies and strong architectures to facilitate sustainable development and operational efficiency.",
   },
   {
-    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/saas.webp",
+    image: "/images/saas.webp",
     title: "SaaS & Custom Software Development",
     description:
       "We develop scalable SaaS solutions and custom software which will support you in achieving your business objectives. From strategy to support, we create apps that enhance growth and creativity, ensuring security and top performance too.",
   },
   {
-    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/ux_ui.webp",
+    image: "/images/ux_ui.webp",
     title: "UI/UX & Product Design",
     description:
       "User-centered design backed by research, strategy, and data. We develop simple digital experiences, design systems that scale to any size, and interfaces that are conversion-driven to increase adoption and ROI.",
   },
   {
-    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/cloud_engineering.webp",
+    image: "/images/cloud_engineering.webp",
     title: "Cloud Engineering & DevOps",
     description:
       "Focus on cloud-native infrastructure for AWS, Azure and Google Cloud. We're experts in CI/CD automation, containerization, infra-as-code, security optimization, and making sure systems stay up and available.",
   },
   {
-    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/ai_intelligent.webp",
+    image: "/images/ai_intelligent.webp",
     title: "AI & Intelligent Automation",
     description:
       "Utilize AI features and capabilities such as machine learning, NLP, computer vision, and predictive analytics in enterprise stuff. In software development, as well we do workflow automation.",
@@ -319,37 +319,37 @@ export const servicesData = [
 
 export const innovationData = [
   {
-    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/ai_logo1.webp",
+    image: "/images/ai_logo1.webp",
     title: "Seamless Integration",
     description:
       "Our services comprise the integration of AI-powered solutions into your current setup to achieve seamless operation.",
   },
   {
-    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/ai_logo2.webp",
+    image: "/images/ai_logo2.webp",
     title: "Improved Decision Making",
     description:
       "Leverage the power of analytics and AI technologies to make more intelligent and prompt business decisions.",
   },
   {
-    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/ai_logo3.webp",
+    image: "/images/ai_logo3.webp",
     title: "Enterprise-Level Security",
     description:
       "Help secure your sensitive information by encrypting them with the help of security techniques.",
   },
   {
-    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/ai_logo4.webp",
+    image: "/images/ai_logo4.webp",
     title: "AI Customization",
     description:
       "We develop custom artificial intelligence systems based on the unique needs of your business.",
   },
   {
-    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/ai_logo5.webp",
+    image: "/images/ai_logo5.webp",
     title: "Real-Time Monitoring",
     description:
       "Monitor your system's performance with live monitoring reports and dashboards.",
   },
   {
-    image: "https://zyntechlabs.io/wp-content/uploads/2026/08/ai_logo6.webp",
+    image: "/images/ai_logo6.webp",
     title: "Agile Development Methodology",
     description:
       "We develop using the agile approach which makes enterprise software development process management easier for both.",
@@ -357,42 +357,42 @@ export const innovationData = [
 ];
 
 export const trustedByLogos = [
-  "https://zyntechlabs.io/wp-content/uploads/2026/08/aj99@3x.webp",
-  "https://zyntechlabs.io/wp-content/uploads/2026/08/alpha.webp",
-  "https://zyntechlabs.io/wp-content/uploads/2026/08/giggo.webp",
-  "https://zyntechlabs.io/wp-content/uploads/2026/08/wetap.webp",
-  "https://zyntechlabs.io/wp-content/uploads/2026/08/white_hawk.webp",
+  "/images/aj99@3x.webp",
+  "/images/alpha.webp",
+  "/images/giggo.webp",
+  "/images/wetap.webp",
+  "/images/white_hawk.webp",
 ];
 
 export const techStackRowOne = [
-  { name: "HTML", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/html.webp" },
-  { name: "CSS", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/css.webp" },
-  { name: "Vue Js", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/vue_js.webp" },
-  { name: "Kotlin", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/kotlin.webp" },
-  { name: "React", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/react.webp" },
-  { name: "Javascript", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/javascript.webp" },
-  { name: "Java", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/java.webp" },
-  { name: "Swift", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/swift.webp" },
-  { name: "Angular", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/angular.webp" },
-  { name: "SQL", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/sql.webp" },
-  { name: "PHP", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/php.webp" },
-  { name: "Objective C", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/c_lan.webp" },
-  { name: "Realm", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/realm.webp" },
-  { name: "XML", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/xml.webp" },
+  { name: "HTML", image: "/images/html.webp" },
+  { name: "CSS", image: "/images/css.webp" },
+  { name: "Vue Js", image: "/images/vue_js.webp" },
+  { name: "Kotlin", image: "/images/kotlin.webp" },
+  { name: "React", image: "/images/react.webp" },
+  { name: "Javascript", image: "/images/javascript.webp" },
+  { name: "Java", image: "/images/java.webp" },
+  { name: "Swift", image: "/images/swift.webp" },
+  { name: "Angular", image: "/images/angular.webp" },
+  { name: "SQL", image: "/images/sql.webp" },
+  { name: "PHP", image: "/images/php.webp" },
+  { name: "Objective C", image: "/images/c_lan.webp" },
+  { name: "Realm", image: "/images/realm.webp" },
+  { name: "XML", image: "/images/xml.webp" },
 ];
 
 export const techStackRowTwo = [
-  { name: "Mongo DB", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/mongo_db.webp" },
-  { name: "TestNG", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/testng.webp" },
-  { name: "Github Actions", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/github.webp" },
-  { name: "Python", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/python.webp" },
-  { name: ".Net", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/dot_net.webp" },
-  { name: "Shopify", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/shopify.webp" },
-  { name: "Wordpress", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/wordpress.webp" },
-  { name: "DevOps", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/devops.webp" },
-  { name: "Kubernetes", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/kubernetes.webp" },
-  { name: "Selenium", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/selenium.webp" },
-  { name: "Node.js", image: "https://zyntechlabs.io/wp-content/uploads/2026/08/node_js.webp" },
+  { name: "Mongo DB", image: "/images/mongo_db.webp" },
+  { name: "TestNG", image: "/images/testng.webp" },
+  { name: "Github Actions", image: "/images/github.webp" },
+  { name: "Python", image: "/images/python.webp" },
+  { name: ".Net", image: "/images/dot_net.webp" },
+  { name: "Shopify", image: "/images/shopify.webp" },
+  { name: "Wordpress", image: "/images/wordpress.webp" },
+  { name: "DevOps", image: "/images/devops.webp" },
+  { name: "Kubernetes", image: "/images/kubernetes.webp" },
+  { name: "Selenium", image: "/images/selenium.webp" },
+  { name: "Node.js", image: "/images/node_js.webp" },
 ];
 
 export const enterprisePillars = [

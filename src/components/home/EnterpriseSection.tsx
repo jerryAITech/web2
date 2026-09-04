@@ -65,7 +65,7 @@ export function EnterpriseSection() {
                 <div className="stat-box">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="https://zyntechlabs.io/wp-content/uploads/2026/08/iso.svg"
+                    src="/images/iso.svg"
                     alt="ISO"
                     width={48}
                     height={48}
@@ -77,7 +77,7 @@ export function EnterpriseSection() {
                 <div className="stat-box">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="https://zyntechlabs.io/wp-content/uploads/2026/08/aws.svg"
+                    src="/images/aws.svg"
                     alt="AWS"
                     width={48}
                     height={48}

@@ -7,7 +7,7 @@ export function OrganizationSchema() {
     '@type': 'Organization',
     name: 'ZynTech Labs',
     url: SITE_URL,
-    logo: 'https://zyntechlabs.io/image/zyntech_logo.svg',
+    logo: '/zyntech_logo.svg',
     description:
       'Custom enterprise software development agency building scalable software, mobile apps, SaaS platforms, AI automation and cloud solutions.',
     sameAs: [
@@ -107,7 +107,7 @@ export function BlogPostingSchema({
       name: 'ZynTech Labs',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://zyntechlabs.io/image/zyntech_logo.svg',
+        url: '/zyntech_logo.svg',
       },
     },
   };

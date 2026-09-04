@@ -4,7 +4,7 @@ import { BreadcrumbSchema, CaseStudySchema } from '@/components/seo/SchemaMarkup
 import { Accordion } from '@/components/case-study/Accordion';
 import { constructMetadata } from '@/lib/seo';
 
-const IMG = 'https://zyntechlabs.io/wp-content/uploads/2026/08';
+const IMG = '/images';
 
 export const metadata: Metadata = constructMetadata({
   title: 'Tarzan Transport Case Study | IoT Fleet Telematics | ZynTech Labs',

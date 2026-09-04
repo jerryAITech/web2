@@ -15,7 +15,7 @@ export function BlogCard({ post }: { post: BlogPost }) {
     <article className="group bg-[#111827]/80 hover:bg-[#1f293d]/80 border border-gray-800 hover:border-cyan-500/50 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col h-full shadow-lg hover:shadow-cyan-500/10">
       <Link href={`/blog/${post.slug}`} className="relative h-52 w-full overflow-hidden block">
         <Image
-          src={post.coverImage || 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80'}
+          src={post.coverImage || '/images/unsplash/blog-fallback-cover.jpg'}
           alt={post.title}
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-500"
