@@ -40,8 +40,40 @@ Check current status: `manage.sanity.io/organizations/oor1p665s/project/3zwa5faq
 - Access to your domain's DNS settings
 - The GitHub repo URL for this project
 - Your Sanity project ID + dataset name
-- Your Gemini and Resend API keys
+- Your Gemini API key, and a Resend account (see below for creating the API key)
 - An SSH client
+
+## Getting your Resend API key
+
+The contact form (`/api/contact`) and the newsletter signup (`/api/subscribe`) both
+send email through [Resend](https://resend.com). Get this key before filling in
+step 6 below.
+
+1. Sign up (or log in) at [resend.com](https://resend.com) — the free tier covers
+   100 emails/day / 3,000/month, which is plenty for a contact form.
+2. Verify the account via the email Resend sends you.
+3. Dashboard → **API Keys** → **Create API Key**.
+   - Name it something identifiable, e.g. `zyntechlabs-production`.
+   - Permission: **Sending access** is enough, no need for full access.
+4. Copy the key immediately — it starts with `re_` and is only ever shown once.
+   This is your `RESEND_API_KEY` for step 6.
+
+**Sender domain:** right now the code sends from Resend's shared test domain
+(`onboarding@resend.dev` — see `src/app/api/contact/route.ts:167,176` and
+`src/app/api/subscribe/route.ts`). That works with zero setup, but mail from a
+shared domain is more likely to land in spam and shows Resend's address instead
+of yours. For production, verify your own domain instead:
+
+Dashboard → **Domains** → **Add Domain** → enter `zyntechlabs.io` → add the
+TXT/DKIM/MX records it gives you at your domain registrar → wait for the
+domain to show **Verified** → then update the `from:` addresses in those two
+route files to something like `ZynTech Labs <hello@zyntechlabs.io>`.
+
+**`CONTACT_TO_EMAIL` isn't a key from any service** — it's just the inbox you
+want leads delivered to (e.g. `hello@zyntechlabs.io` or `sales@zyntechlabs.io`).
+Pick any mailbox your team actually checks. If you leave it unset, the code
+falls back to a hardcoded placeholder Gmail address
+(`src/app/api/contact/route.ts:160`) — don't skip this in production.
 
 ## 1. Launch the EC2 instance
 
