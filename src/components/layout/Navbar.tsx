@@ -177,12 +177,41 @@ export function Navbar() {
           >
             Enterprise Architecture
           </Link>
-          <Link
-            href="/case-studies"
-            className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-teal-400 hover:bg-gray-800/60"
-          >
-            Case Studies
-          </Link>
+          <div>
+            <button
+              type="button"
+              onClick={() => setPortfolioOpen(!portfolioOpen)}
+              className="w-full flex items-center justify-between px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-teal-400 hover:bg-gray-800/60 focus:outline-none"
+              aria-expanded={portfolioOpen}
+            >
+              Portfolio
+              <ChevronDown
+                className={`w-4 h-4 text-gray-400 transition-transform ${portfolioOpen ? 'rotate-180' : ''}`}
+              />
+            </button>
+            {portfolioOpen && (
+              <div className="mt-1 ml-3 space-y-1 border-l border-gray-800 pl-3">
+                <Link
+                  href="/case-study/gig-logistics"
+                  className="block px-3 py-2 rounded-md text-sm font-medium text-gray-400 hover:text-teal-400 hover:bg-gray-800/60"
+                >
+                  GIG Logistics
+                </Link>
+                <Link
+                  href="/case-study/tarzan-transport"
+                  className="block px-3 py-2 rounded-md text-sm font-medium text-gray-400 hover:text-teal-400 hover:bg-gray-800/60"
+                >
+                  Tarzan Transport
+                </Link>
+                <Link
+                  href="/case-studies"
+                  className="block px-3 py-2 rounded-md text-sm font-semibold text-teal-400 hover:text-teal-300"
+                >
+                  View All Case Studies →
+                </Link>
+              </div>
+            )}
+          </div>
           <Link
             href="/blog"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-teal-400 hover:bg-gray-800/60"
